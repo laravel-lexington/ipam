@@ -3,5 +3,12 @@ Main repo for ipam
 
 ## ERD
 
-Sample draw.io file added in project root. It has one table (users) with two 
-fields (id, fav_color). 6/23/15 JLH
+ipam-schema-v1.xml 
+
+  This file contains the latest version of the database schema.
+
+  It can be viewed in draw.io. Either upload your local copy of the file,
+  or view the file in raw mode on github.com and open that URL in draw.io.
+
+
+

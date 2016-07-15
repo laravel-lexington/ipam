@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::resource('subnet', 'SubnetController');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');

@@ -10,6 +10,6 @@ ipam-schema-v1.xml
   It can be viewed in draw.io. Either upload your local copy of the file,
   or view the file in raw mode on github.com and open that URL in draw.io.
 
-This is REALLY COOL additional text...
+This is REALLY SUPER COOL additional text...
 
 

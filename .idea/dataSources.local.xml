@@ -4,8 +4,8 @@
     <data-source name="PostgreSQL - homestead@localhost" uuid="f893e422-ae4e-4ed2-867d-6d055549c4f8">
       <secret-storage>master_key</secret-storage>
       <user-name>charlescombs</user-name>
-      <introspection-scope>homestead:public,pg_catalog,charlescombs</introspection-scope>
-      <resolve-scope>homestead:public,charlescombs</resolve-scope>
+      <introspection-scope>homestead:charlescombs,pg_catalog,public</introspection-scope>
+      <resolve-scope>homestead:charlescombs,public</resolve-scope>
     </data-source>
   </component>
 </project>

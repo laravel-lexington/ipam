@@ -24,3 +24,5 @@ Route::get('/home', 'HomeController@index');
 Route::get('example', function () {
     return view('example');
 });
+
+Route::get('subnets', 'PagesController@subnetsTable');

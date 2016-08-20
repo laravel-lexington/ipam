@@ -14,3 +14,6 @@ bootstrap/cache/
 # Rocketeer PHP task runner and deployment package. https://github.com/rocketeers/rocketeer
 .rocketeer/
 /.DS_Store
+.idea/dataSources/df8bab2d-eb01-4c3e-9e27-7fc95667b9f4.xml
+app/Subnets.php
+database/migrations/2016_08_20_160045_create_subnets_table.php

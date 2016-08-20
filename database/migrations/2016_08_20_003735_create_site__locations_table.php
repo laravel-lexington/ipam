@@ -18,7 +18,7 @@ class CreateSiteLocationsTable extends Migration
             $table->increments('id'); //pk
 
             $table->integer('site_id'); //fk
-            $table->foreign('site_id')->references('id')->on('sites'); //fk constraint
+            //$table->foreign('site_id')->references('id')->on('sites')->onDelete('cascade'); //fk constraint
 
             $table->string('building_name');
             $table->integer('room_number');

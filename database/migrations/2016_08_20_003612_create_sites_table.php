@@ -47,6 +47,7 @@ class CreateSitesTable extends Migration
      */
     public function down()
     {
+        //DB::table('sites')->dropForeign('subnet_nodes_table_foreign_id');
         Schema::drop('sites');
     }
 }

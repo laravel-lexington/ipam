@@ -19,9 +19,9 @@ class CreateSubnetNodesTable extends Migration
             $table->ipAddress('ip_address');// ??? pk ??? probably not, but an index most likely
 
             $table->string('site_location_id'); // fk
-            $table->foreign('site_location_id')->references('id')->on('site_locations'); //fk constraints
+            //$table->foreign('site_location_id')->references('id')->on('site_locations')->onDelete('cascade'); //fk constraints
             $table->string('entity_type_id'); // fk
-            $table->foreign('entity_type_id')->references('id')->on('entity_type'); //fk constraints
+            //$table->foreign('entity_type_id')->references('id')->on('entity_type')->onDelete('cascade'); //fk constraints
 
             $table->macAddress('mac_address')->unique();
             $table->string('name'); //??? name of what?

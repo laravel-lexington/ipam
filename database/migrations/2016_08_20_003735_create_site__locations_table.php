@@ -13,8 +13,27 @@ class CreateSiteLocationsTable extends Migration
     public function up()
     {
         Schema::create('site__locations', function (Blueprint $table) {
-            $table->increments('id');
+
+            //mine
+            $table->increments('id'); //pk
+
+            $table->integer('site_id'); //fk
+            $table->foreign('site_id')->references('id')->on('sites'); //fk constraint
+
+            $table->string('building_name');
+            $table->integer('room_number');
+
             $table->timestamps();
+
+            //schema
+//            $table->increments('vlan_id'); //pk
+//            $table->integer('site_id'); //fk
+//
+//            $table->string('building_name');
+//            $table->integer('room_number');
+//
+//            $table->timestamps();
+
         });
     }
 

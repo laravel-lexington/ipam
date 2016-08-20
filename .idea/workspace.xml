@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff56d6b3-2b50-497d-b076-4c0e3b9ff36d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_07_15_014149_create_subnets_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_07_15_014149_create_subnets_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_08_20_003612_create_sites_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_08_20_003612_create_sites_table.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_08_20_003715_create_subnet__nodes_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_08_20_003715_create_subnet__nodes_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_08_20_003735_create_site__locations_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_08_20_003735_create_site__locations_table.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/migrations/2016_08_20_003810_create_entity__types_table.php" afterPath="$PROJECT_DIR$/database/migrations/2016_08_20_003810_create_entity__types_table.php" />
     </list>
     <ignored path="ipam.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="2016_08_20_003715_create_subnet__nodes_table.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2016_08_20_003715_create_subnet__nodes_table.php">
+      <file leaf-file-name="2016_08_20_003825_create_printers_table.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/database/migrations/2016_08_20_003825_create_printers_table.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+            <state relative-caret-position="-252">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -69,6 +69,8 @@
         <option value="$PROJECT_DIR$/database/migrations/2016_08_20_003612_create_sites_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_07_15_014149_create_subnets_table.php" />
         <option value="$PROJECT_DIR$/database/migrations/2016_08_20_003715_create_subnet__nodes_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_08_20_003735_create_site__locations_table.php" />
+        <option value="$PROJECT_DIR$/database/migrations/2016_08_20_003810_create_entity__types_table.php" />
       </list>
     </option>
   </component>
@@ -754,12 +756,12 @@
       <workItem from="1471615567744" duration="1013000" />
       <workItem from="1471647930887" duration="10000" />
       <workItem from="1471647988508" duration="299000" />
-      <workItem from="1471648375899" duration="10378000" />
+      <workItem from="1471648375899" duration="11157000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19348000" />
+    <option name="totallyTimeSpent" value="20127000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="707" extended-state="0" />
@@ -804,7 +806,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1091,8 +1095,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2016_08_20_003715_create_subnet__nodes_table.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
+        <state relative-caret-position="-233">
           <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_08_20_003735_create_site__locations_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_08_20_003810_create_entity__types_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="415">
+          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2016_08_20_003825_create_printers_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-252">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>

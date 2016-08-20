@@ -2,14 +2,9 @@
 //TODO clean up seeder file
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use App\Users;
-use App\Sessions;
-use App\Payments;
-use App\PaymentMethods;
-use App\PageViews;
-use App\Orders;
-use App\Items;
-use App\Downloads;
+use App\User;
+use App\Subnets;
+
 
 
 class DatabaseSeeder extends Seeder
@@ -24,29 +19,11 @@ class DatabaseSeeder extends Seeder
         // $this->call(UsersTableSeeder::class);
         Model::unguard();
 
-        Users::truncate();
-        factory(Users::class, 50)->create();
+        User::truncate();
+        factory(User::class, 50)->create();
 
-        Sessions::truncate();
-        factory(Sessions::class, 50)->create();
-
-        Payments::truncate();
-        factory(Payments::class, 50)->create();
-
-        PaymentMethods::truncate();
-        factory(PaymentMethods::class, 50)->create();
-
-        PageViews::truncate();
-        factory(PageViews::class, 50)->create();
-
-        Orders::truncate();
-        factory(Orders::class, 50)->create();
-
-        Items::truncate();
-        factory(Items::class, 50)->create();
-
-        Downloads::truncate();
-        factory(Downloads::class, 50)->create();
+        Subnets::truncate();
+        factory(Subnets::class, 50)->create();
 
         Model::reguard();
     }

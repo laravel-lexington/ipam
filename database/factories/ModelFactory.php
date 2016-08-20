@@ -39,7 +39,7 @@ $factory->define(App\Subnets::class, function (Faker\Generator $faker) {
             $X3_3 = random_int(0,255);
             $X3_4 = random_int(0,255);
 
-            $fake_ip = $X3_1 . $X3_2 . $X3_3 . $X3_4;
+            $fake_ip = $X3_1 . '.' . $X3_2 . '.' . $X3_3 . '.' . $X3_4;
 
             return $fake_ip;
         },
@@ -51,7 +51,7 @@ $factory->define(App\Subnets::class, function (Faker\Generator $faker) {
             $X3_3 = random_int(0,255);
             $X3_4 = random_int(0,255);
 
-            $default_gate_number = $X3_1 . $X3_2 . $X3_3 . $X3_4;
+            $default_gate_number = $X3_1 . '.' . $X3_2 . '.' . $X3_3 . '.' . $X3_4;
 
             return $default_gate_number;
         },

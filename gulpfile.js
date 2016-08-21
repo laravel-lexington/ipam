@@ -24,6 +24,11 @@ elixir(function(mix){
 
     //remember to place fonts in public/fonts and in public/build/fonts
 
+    mix.copy('resources/assets/fonts/toolkit-entypo.eot', 'public/build/fonts/toolkit-entypo.eot');
+    mix.copy('resources/assets/fonts/toolkit-entypo.ttf', 'public/build/fonts/toolkit-entypo.ttf');
+    mix.copy('resources/assets/fonts/toolkit-entypo.woff', 'public/build/fonts/toolkit-entypo.woff');
+    mix.copy('resources/assets/fonts/toolkit-entypo.woff2', 'public/build/fonts/toolkit-entypo.woff2');
+
     mix.scripts('jquery.min.js');
     mix.scripts('chart.js');
     mix.scripts('tablesorter.min.js');

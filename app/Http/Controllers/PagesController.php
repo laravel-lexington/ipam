@@ -50,4 +50,15 @@ class PagesController extends Controller
 
     }
 
+    public function subnetsTableInherits() {
+
+        $subnets = Subnets::all();
+
+        //$columnHeaders = $subnets->keys();
+
+        //$object = var_dump($columnHeaders);
+
+        return view('subnetsInherits', compact('subnets', $subnets));
+
+    }
 }

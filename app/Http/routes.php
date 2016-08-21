@@ -26,3 +26,5 @@ Route::get('example', function () {
 });
 
 Route::get('subnets', 'PagesController@subnetsTable');
+
+Route::get('subnetsInherits', 'PagesController@subnetsTableInherits');

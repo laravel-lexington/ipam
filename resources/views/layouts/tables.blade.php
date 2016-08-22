@@ -68,7 +68,9 @@
         <div class="col-sm-9 content">
             <div class="dashhead">
                 <div class="dashhead-titles">
+<!--                    <h6 class="dashhead-subtitle">Dashboards, {//{ /$binary[/'binary'] }//}</h6>-->
                     <h6 class="dashhead-subtitle">Dashboards</h6>
+
                     <h2 class="dashhead-title"> {{ $title['title'] }}</h2>
                 </div>
 

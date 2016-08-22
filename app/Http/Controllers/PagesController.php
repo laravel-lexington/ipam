@@ -39,8 +39,23 @@ class PagesController extends Controller
 
         $subnets = Subnets::all();
 
+       $ip = [
+
+           'ip' => long2ip(rand(0, "4294967295")),
+           'long' => ip2long('255.255.255.255'),
+
+        ];
+
+        $binary = [
+
+            //below are not valid
+            //'binary' => inet_ntop('255.255.255.255')
+            //'binary' => inet_ntop('11111111111111111111111111111111')
+
+        ];
+
         //TODO: create subnets directory and subnets/index.blade.php
-        return view('subnets')->with('title', $title)->with('dashboards', $dashboards)->with('more', $more)->with('subnets', $subnets);
+        return view('subnets')->with('title', $title)->with('dashboards', $dashboards)->with('more', $more)->with('subnets', $subnets);//->with('binary', $binary);
 
     }
 

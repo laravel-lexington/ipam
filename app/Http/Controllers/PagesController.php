@@ -11,12 +11,36 @@ use App\Http\Requests;
 class PagesController extends Controller
 {
 
-    public function indexSubnets(){
+    public function subnetsTable(){
+
+        //$columnHeaders = $subnets->keys();
+
+        //$object = var_dump($columnHeaders);
+
+        $title = [
+
+            'title'=> 'Subnets'
+
+            ];
+
+        $dashboards = [
+
+            'Sites' => '../tables/sites',
+            'Subnets' => '../tables/subnets',
+            'Equipment' => '../tables/equipment',
+            '...' => '../tables/...',
+        ];
+
+        $more = [
+            'Toolkit-docs' => '',
+            'Bootstrap-docs' => '',
+            'Light-UI' => '../light/layout',
+        ];
 
         $subnets = Subnets::all();
 
         //TODO: create subnets directory and subnets/index.blade.php
-        return view('subnets.index', compact($subnets));//requires a subnets directory with an index page
+        return view('subnets')->with('title', $title)->with('dashboards', $dashboards)->with('more', $more)->with('subnets', $subnets);
 
     }
 
@@ -38,27 +62,4 @@ class PagesController extends Controller
 
     }
 
-    public function subnetsTable() {
-
-        $subnets = Subnets::all();
-
-        //$columnHeaders = $subnets->keys();
-
-        //$object = var_dump($columnHeaders);
-
-        return view('subnets', compact('subnets', $subnets));
-
-    }
-
-    public function subnetsTableInherits() {
-
-        $subnets = Subnets::all();
-
-        //$columnHeaders = $subnets->keys();
-
-        //$object = var_dump($columnHeaders);
-
-        return view('subnetsInherits', compact('subnets', $subnets));
-
-    }
 }

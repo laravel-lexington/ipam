@@ -35,40 +35,31 @@
                             <span class="icon icon-magnifying-glass"></span>
                         </button>
                     </form>
+
                     <ul class="nav nav-pills nav-stacked">
+
                         <li class="nav-header">Dashboards</li>
-                        <li >
-                            <a href="../index.html">Home</a>
+
+                        @foreach($dashboards as $key => $value)
+                        <li id="{{ $key }}">
+                            <a href="{{ $value }}">{{ $key }}</a>
                         </li>
-                        <li class="active">
-                            <a href="../subnetsInherits">Subnets</a>
-                        </li>
-                        <li >
-                            <a href="../fluid/index.html">###</a>
-                        </li>
-                        <li >
-                            <a href="../icon-nav/index.html">@@@</a>
-                        </li>
+                        @endforeach
 
                         <li class="nav-header">More</li>
-                        <li >
-                            <a href="../docs/index.html">
-                                Toolkit docs
+
+                        @foreach($more as $key => $value)
+                        <li id="{{ $key }}">
+                            <a href="{{ $value }}">
+                                {{ $key }}
                             </a>
                         </li>
-                        <li>
-                            <a href="http://getbootstrap.com" target="blank">
-                                Bootstrap docs
-                            </a>
-                        </li>
-                        <li >
-                            <a href="../light/index.html">Light UI</a>
-                        </li>
-                        <li>
-                            <a href="#docsModal" data-toggle="modal">
-                                Example modal
-                            </a>
-                        </li>
+                        @endforeach
+
+                        <a href="#docsModal" data-toggle="modal">
+                            Example modal
+                        </a>
+
                     </ul>
                     <hr class="visible-xs m-t">
                 </div>
@@ -78,7 +69,7 @@
             <div class="dashhead">
                 <div class="dashhead-titles">
                     <h6 class="dashhead-subtitle">Dashboards</h6>
-                    <h2 class="dashhead-title"> { { { Subnets } } }</h2>
+                    <h2 class="dashhead-title"> {{ $title['title'] }}</h2>
                 </div>
 
                 <div class="btn-toolbar dashhead-toolbar">
@@ -107,11 +98,6 @@
                     </div>
                 </div>
             </div>
-
-            <!--<div>-->
-            <!--{/{ $object }}-->
-            <!--/@/yield('thing')-->
-            <!--</div>-->
 
             <div class="table-full">
                 <div class="table-responsive">

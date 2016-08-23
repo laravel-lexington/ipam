@@ -65,3 +65,33 @@ $factory->define(App\Subnets::class, function (Faker\Generator $faker) {
         },
     ];
 });
+
+$factory->define(App\Sites::class, function (Faker\Generator $faker) {
+    return [
+//
+    ];
+});
+
+$factory->define(App\Site_Locations::class, function (Faker\Generator $faker) {
+    return [
+//
+    ];
+});
+
+$factory->define(App\Printers::class, function (Faker\Generator $faker) {
+    return [
+//
+    ];
+});
+
+$factory->define(App\Computers::class, function (Faker\Generator $faker) {
+    return [
+//
+    ];
+});
+
+$factory->define(App\Entity_Types::class, function (Faker\Generator $faker) {
+    return [
+//
+    ];
+});

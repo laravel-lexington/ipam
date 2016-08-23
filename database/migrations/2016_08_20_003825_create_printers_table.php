@@ -14,6 +14,12 @@ class CreatePrintersTable extends Migration
     {
         Schema::create('printers', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('subnet_id'); //pk
+            $table->ipAddress('ip_address'); //fk
+            $table->macAddress('mac_address');
+            $table->string('serial_number');
+            $table->string('print_server');
+            $table->string('print_queue');
             $table->timestamps();
         });
     }

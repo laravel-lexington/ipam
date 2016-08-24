@@ -40,27 +40,35 @@ $factory->define(App\Subnets::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Sites::class, function (Faker\Generator $faker) {
-    return [
-//
-    ];
-});
-
-$factory->define(App\Site_Locations::class, function (Faker\Generator $faker) {
-    return [
-//
-    ];
-});
-
 $factory->define(App\Printers::class, function (Faker\Generator $faker) {
     return [
-//
+        'subnet_id' => $faker->numberBetween(1, 50),
+        'ip_address' => $faker->ipv4,
+        'mac_address' => $faker->macAddress,
+        'serial_number' => $faker->creditCardNumber,
+        'print_server' => $faker->lastName,
+        'print_queue' => $faker->lastName,
     ];
 });
 
 $factory->define(App\Computers::class, function (Faker\Generator $faker) {
     return [
-//
+        'subnet_id' => $faker->numberBetween(1, 50),
+        'ip_address' => $faker->ipv4,
+        'mac_address' => $faker->macAddress,
+        'serial_number' => $faker->creditCardNumber,
+        'operating_system' => function()
+        {
+            $tokenIndex = random_int(1, 3);
+            if ($tokenIndex == 3){
+                return "windows";
+            } elseif ($tokenIndex == 2) {
+                return "OSX";
+            } else {
+                return "linux";
+            }
+        },
+        'virtual_machine_flag' => $faker->boolean,
     ];
 });
 

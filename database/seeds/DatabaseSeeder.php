@@ -4,6 +4,9 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\Subnets;
+use App\Computers;
+use App\Printers;
+use App\Placeholders;
 
 
 
@@ -24,6 +27,15 @@ class DatabaseSeeder extends Seeder
 
         Subnets::truncate();
         factory(Subnets::class, 50)->create();
+
+        Printers::truncate();
+        factory(Printers::class, 50)->create();
+
+        Computers::truncate();
+        factory(Computers::class, 50)->create();
+
+//        Placeholders::truncate();
+//        factory(Placeholders::class, 50)->create();
 
         Model::reguard();
     }

@@ -14,6 +14,10 @@ class CreatePlaceholdersTable extends Migration
     {
         Schema::create('placeholders', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('subnet_id');
+            $table->ipAddress('ip_address');
+            $table->macAddress('mac_address');
+            $table->string('serial_number');
             $table->timestamps();
         });
     }

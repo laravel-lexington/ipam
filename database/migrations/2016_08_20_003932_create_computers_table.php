@@ -14,6 +14,12 @@ class CreateComputersTable extends Migration
     {
         Schema::create('computers', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('subnet_id');
+            $table->ipAddress('ip_address');
+            $table->macAddress('mac_address');
+            $table->string('serial_number');
+            $table->string('operating_system');
+            $table->boolean('virtual_machine_flag');
             $table->timestamps();
         });
     }

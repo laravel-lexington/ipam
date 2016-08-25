@@ -55,10 +55,11 @@
                             </a>
                         </li>
                         @endforeach
-
-                        <a href="#docsModal" data-toggle="modal">
-                            Example modal
-                        </a>
+                        <li>
+                            <a href="#docsModal" data-toggle="modal">
+                                Example modal
+                            </a>
+                        </li>
 
                     </ul>
                     <hr class="visible-xs m-t">
@@ -114,7 +115,7 @@
                             <th>prefix_length</th>
                             <th>name</th>
                             <th>default_gateway</th>
-                            <th>created_at</th>
+<!--                            <th>created_at</th>-->
                             <!--<th><input type="checkbox" class="select-all" id="selectAll"></th>-->
                             <!--/@/foreach($columnHeaders as $header)-->
                             <!--<th>{/{ $header }}</th>-->
@@ -132,7 +133,7 @@
                             <td>{{ $subnet->prefix_length }}</td>
                             <td>{{ $subnet->name }}</td>
                             <td>{{ $subnet->default_gateway }}</td>
-                            <td>{{ $subnet->created_at }}</td>
+<!--                            <td>{{ $subnet->created_at }}</td>-->
                         </tr>
                         @endforeach
                         </tbody>

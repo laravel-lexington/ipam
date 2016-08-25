@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Subnets;
+use App\Printers;
+use App\Computers;
+use App\Placeholders;
 
 use Illuminate\Http\Request;
 
@@ -75,6 +78,61 @@ class PagesController extends Controller
 
         $subnets->save();
 
+    }
+
+
+    public function entityCharts(){
+
+        $dashboards = [
+
+            'Overview' => '../chart',
+            'Order-history' => '../order-history/layout',
+            'Fluid-layout' => '../fluid/example',
+            'Icon-nav' => '../icon-nav/example',
+        ];
+
+        $more = [
+            'Toolkit-docs' => '',
+            'Bootstrap-docs' => '',
+            'Light-UI' => '../light/layout',
+            'Example-modal' => ''
+        ];
+
+        $charts = collect(
+            [
+                [
+                    'class' => 'ex-graph',
+                    'width' => '200',
+                    'height' => '200',
+                    'dataChart' => 'doughnut',
+                    'dataValue' => "[{ value: 100, color: '#1ca8dd', label: 'Recurring' }, { value: 260, color: '#1bc98e', label: 'New' }]",
+                    'dataSegmentStrokeColor' => '#252830',
+                    'name' => 'Venkman',
+                    'chartHeading' => 'Peter vs Dana'
+                ],
+                [
+                    'class' => 'ex-graph',
+                    'width' => '200',
+                    'height' => '200',
+                    'dataChart' => 'doughnut',
+                    'dataValue' => "[{ value: 300, color: '#1ca8dd', label: 'Slimer' }, { value: 60, color: '#1bc98e', label: 'Ghostbusters' }]",
+                    'dataSegmentStrokeColor' => '#252830',
+                    'name' => 'Stantz',
+                    'chartHeading' => 'Ray vs Slimer'
+                ],
+                [
+                    'class' => 'ex-graph',
+                    'width' => '200',
+                    'height' => '200',
+                    'dataChart' => 'doughnut',
+                    'dataValue' => "[{ value: 180, color: '#1ca8dd', label: 'Slime' }, { value: 180, color: '#1bc98e', label: 'Ghostbusters' }]",
+                    'dataSegmentStrokeColor' => '#252830',
+                    'name' => 'Stantz',
+                    'chartHeading' => 'Egon vs Marshmallows'
+                ]
+            ]);
+
+        return view('chart')->with('dashboards', $dashboards)->with('more', $more)->with('charts', $charts);
     }
 
 }

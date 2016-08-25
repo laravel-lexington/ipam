@@ -72,6 +72,15 @@ $factory->define(App\Computers::class, function (Faker\Generator $faker) {
     ];
 });
 
+$factory->define(App\Placeholders::class, function (Faker\Generator $faker) {
+    return [
+        'subnet_id' => $faker->numberBetween(1, 50),
+        'ip_address' => $faker->ipv4,
+        'mac_address' => $faker->macAddress,
+        'serial_number' => $faker->creditCardNumber,
+    ];
+});
+
 $factory->define(App\Entity_Types::class, function (Faker\Generator $faker) {
     return [
 //

@@ -32,10 +32,10 @@ class DatabaseSeeder extends Seeder
         factory(Printers::class, 50)->create();
 
         Computers::truncate();
-        factory(Computers::class, 50)->create();
+        factory(Computers::class, 150)->create();
 
-//        Placeholders::truncate();
-//        factory(Placeholders::class, 50)->create();
+        Placeholders::truncate();
+        factory(Placeholders::class, 30)->create();
 
         Model::reguard();
     }

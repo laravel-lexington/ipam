@@ -10,35 +10,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-    <meta name="author" content="">
-
-    <title>
-
-        Overview &middot;
-
-    </title>
-
-    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
-
-    <link href="{{ elixir('css/toolkit-inverse.css') }}" rel="stylesheet">
-
-
-    <link href="{{ elixir('css/application.css') }}" rel="stylesheet">
-
-    <style>
-        /* note: this is a hack for ios iframe for bootstrap themes shopify page */
-        /* this chunk of css is not part of the toolkit :) */
-        body {
-            width: 1px;
-            min-width: 100%;
-            *width: 100%;
-        }
-    </style>
+    @yield('head')
 </head>
 
 
@@ -51,13 +23,12 @@
                     <button class="nav-toggler nav-toggler-sm sidebar-toggler" type="button" data-toggle="collapse" data-target="#nav-toggleable-sm">
                         <span class="sr-only">Toggle nav</span>
                     </button>
-                    <a class="sidebar-brand img-responsive" href="index.html">
-                        <span class="icon icon-leaf sidebar-brand-icon"></span>
+                    <a class="sidebar-brand img-responsive" href="../index.html">
+                        <img src="favicon.png"/>
                     </a>
                 </div>
 
                 <div class="collapse nav-toggleable-sm" id="nav-toggleable-sm">
-
                     <form class="sidebar-form">
                         <input class="form-control" type="text" placeholder="Search...">
                         <button type="submit" class="btn-link">
@@ -65,16 +36,14 @@
                         </button>
                     </form>
 
-                    <!--dashboard-goes-here-->
                     <ul class="nav nav-pills nav-stacked">
+
                         <li class="nav-header">Dashboards</li>
 
                         @foreach($dashboards as $key => $value)
-
                         <li id="{{ $key }}">
                             <a href="{{ $value }}">{{ $key }}</a>
                         </li>
-
                         @endforeach
 
                         <li class="nav-header">More</li>
@@ -85,11 +54,14 @@
                                 {{ $key }}
                             </a>
                         </li>
-
                         @endforeach
+                        <li>
+                            <a href="#docsModal" data-toggle="modal">
+                                Example modal
+                            </a>
+                        </li>
 
                     </ul>
-
                     <hr class="visible-xs m-t">
                 </div>
             </nav>
@@ -97,8 +69,10 @@
         <div class="col-sm-9 content">
             <div class="dashhead">
                 <div class="dashhead-titles">
+                    <!--                    <h6 class="dashhead-subtitle">Dashboards, {//{ /$binary[/'binary'] }//}</h6>-->
                     <h6 class="dashhead-subtitle">Dashboards</h6>
-                    <h2 class="dashhead-title">Overview</h2>
+
+                    <h2 class="dashhead-title"> {{ $title['title'] }}</h2>
                 </div>
 
                 <div class="btn-toolbar dashhead-toolbar">
@@ -111,25 +85,11 @@
 
             <hr class="m-t">
 
-            <div class="row text-center m-t-lg">
+<!--            <div class="row text-center m-t-lg">-->
 
-                @foreach($charts as $chart)
-                <div class="col-sm-4 m-b-md">
-                    <div class="w-lg m-x-auto">
-                        <canvas
-                                class="{{ $chart['class'] }}"
-                                width="{{ $chart['width'] }}" height="{{ $chart['height'] }}"
-                                data-chart="{{ $chart['dataChart'] }}"
-                                data-value="{{ $chart['dataValue'] }}"
-                                data-segment-stroke-color="{{ $chart['dataSegmentStrokeColor'] }}">
-                        </canvas>
-                    </div>
-                    <strong class="text-muted">{{ $chart['name'] }}</strong>
-                    <h3>{{ $chart['chartHeading'] }}</h3>
-                </div>
-                @endforeach
+                @yield('tier1content')
 
-            </div>
+<!--            </div>-->
 
             <div class="hr-divider m-t-md m-b">
                 <h3 class="hr-divider-content hr-divider-heading">Quick stats</h3>
@@ -385,23 +345,24 @@
     </div>
 </div>
 
-<div id="docsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-    <div class="modal-dialog">
-        <div class="modal-content">
-
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Example modal</h4>
-            </div>
-            <div class="modal-body">
-                <p>You're looking at an example modal in the dashboard theme.</p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">Cool, got it!</button>
-            </div>
-        </div>
-    </div>
-</div>
+@yield('modal')
+<!--<div id="docsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
+<!--    <div class="modal-dialog">-->
+<!--        <div class="modal-content">-->
+<!---->
+<!--            <div class="modal-header">-->
+<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
+<!--                <h4 class="modal-title" id="myModalLabel">Example modal</h4>-->
+<!--            </div>-->
+<!--            <div class="modal-body">-->
+<!--                <p>You're looking at an example modal in the dashboard theme.</p>-->
+<!--            </div>-->
+<!--            <div class="modal-footer">-->
+<!--                <button type="button" class="btn btn-primary" data-dismiss="modal">Cool, got it!</button>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 
 <script src="{{ elixir('js/jquery.min.js') }}"></script>

@@ -29,4 +29,4 @@ Route::get('subnets', 'PagesController@subnetsTable');
 
 Route::get('subnetsInherits', 'PagesController@subnetsTableInherits');
 
-Route::get('chart', 'PagesController@entityCharts');
+Route::get('equipment', 'PagesController@equipmentCharts');

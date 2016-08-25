@@ -29,8 +29,8 @@ class PagesController extends Controller
         $dashboards = [
 
             'Sites' => '../tables/sites',
-            'Subnets' => '../tables/subnets',
-            'Equipment' => '../tables/equipment',
+            'Subnets' => '../subnets',
+            'Equipment' => '../equipment',
             '...' => '../tables/...',
         ];
 
@@ -81,21 +81,26 @@ class PagesController extends Controller
     }
 
 
-    public function entityCharts(){
+    public function equipmentCharts(){
+
+        $title = [
+
+            'title'=> 'Equipment'
+
+        ];
 
         $dashboards = [
 
-            'Overview' => '../chart',
-            'Order-history' => '../order-history/layout',
-            'Fluid-layout' => '../fluid/example',
-            'Icon-nav' => '../icon-nav/example',
+            'Sites' => '../tables/sites',
+            'Subnets' => '../subnets',
+            'Equipment' => '../tables/equipment',
+            '...' => '../tables/...',
         ];
 
         $more = [
             'Toolkit-docs' => '',
             'Bootstrap-docs' => '',
             'Light-UI' => '../light/layout',
-            'Example-modal' => ''
         ];
 
         $charts = collect(
@@ -132,7 +137,7 @@ class PagesController extends Controller
                 ]
             ]);
 
-        return view('chart')->with('dashboards', $dashboards)->with('more', $more)->with('charts', $charts);
+        return view('equipment')->with('title', $title)->with('dashboards', $dashboards)->with('more', $more)->with('charts', $charts);
     }
 
 }

@@ -125,14 +125,18 @@ class PagesController extends Controller
                     'name' => 'Stantz',
                     'chartHeading' => 'Ray vs Slimer'
                 ],
+                //TODO make loop ???
                 [
                     'class' => 'ex-graph',
                     'width' => '200',
                     'height' => '200',
                     'dataChart' => 'doughnut',
+                    //'dataValue' => $dataValue,
                     'dataValue' => "[{ value: 180, color: '#1ca8dd', label: 'Slime' }, { value: 180, color: '#1bc98e', label: 'Ghostbusters' }]",
                     'dataSegmentStrokeColor' => '#252830',
+                    //'name' => $name,
                     'name' => 'Stantz',
+                    //'chartHeading' => $chartHeading,
                     'chartHeading' => 'Egon vs Marshmallows'
                 ]
             ]);

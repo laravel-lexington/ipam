@@ -24,6 +24,7 @@
 
     <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic" rel="stylesheet">
 
+<!--    <link href="{{ elixir('css/toolkit-light.css') }}" rel="stylesheet">-->
     <link href="{{ elixir('css/toolkit-inverse.css') }}" rel="stylesheet">
 
 

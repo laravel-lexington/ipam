@@ -7,6 +7,7 @@ use App\Printers;
 use App\Computers;
 use App\Placeholders;
 
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -80,9 +81,7 @@ class PagesController extends Controller
 
     }
 
-
     public function equipmentCharts(){
-
         $title = [
 
             'title'=> 'Equipment'
@@ -110,6 +109,7 @@ class PagesController extends Controller
                     'width' => '200',
                     'height' => '200',
                     'dataChart' => 'doughnut',
+                    //'dataValue' => $computerCharts,
                     'dataValue' => "[{ value: 100, color: '#1ca8dd', label: 'Recurring' }, { value: 260, color: '#1bc98e', label: 'New' }]",
                     'dataSegmentStrokeColor' => '#252830',
                     'name' => 'Venkman',
@@ -144,4 +144,67 @@ class PagesController extends Controller
         return view('equipment')->with('title', $title)->with('dashboards', $dashboards)->with('more', $more)->with('charts', $charts);
     }
 
+
+    public function dataCollect(Model $model, $label, $color){
+        //public function dataCollect($equipmentModel){
+        $dataCollection = collect
+        ([
+            $equipmentLabel = $label,
+            //[
+            //
+            //],
+            $equipmentCount = $model->count(),
+            //$equipmentCount = $this->model->count(),
+            //[
+            //
+            //],
+            $chartColor = $color
+            //[
+            //'chartColor' => $equipmentColor
+            //]
+        ]);
+
+        return $dataCollection;
+    }
+
+
+    public function equipmentCharts2(Model $model, $label, $color)
+    {
+            $model = $model::all();
+            return dataCollect($model, $label, $color);
+    }
+
+
+
+
+//    $data =
+//    [
+//        'class' => 'ex-graph',
+//        'width' => '200',
+//        'height' => '200',
+//        'dataChart' => 'doughnut',
+//            //'dataValue' => $computerCharts,
+//        'dataValue' => "[{ value: 100, color: '#1ca8dd', label: 'Recurring' }, { value: 260, color: '#1bc98e', label: 'New' }]",
+//        'dataSegmentStrokeColor' => '#252830',
+//        'name' => 'Venkman',
+//        'chartHeading' => 'Peter vs Dana'
+//    ];
+
+//foreach ($datum in $data){
+//
+//}
+//    $computerCharts = [
+//        {
+//            value: $entityCount, //$computerCount
+//            color: '#1ca8dd',
+//            label: $entityLabel //$computerChartLabels
+//        },
+//        {
+//            value: $aggregateCount,
+//            color: '#1bc98e',
+//            label: $aggregateLabel
+//        }
+//        ];
+
 }
+

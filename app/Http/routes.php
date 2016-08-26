@@ -30,3 +30,5 @@ Route::get('subnets', 'PagesController@subnetsTable');
 Route::get('subnetsInherits', 'PagesController@subnetsTableInherits');
 
 Route::get('equipment', 'PagesController@equipmentCharts');
+
+Route::get('equip', 'PagesController@chartChart');

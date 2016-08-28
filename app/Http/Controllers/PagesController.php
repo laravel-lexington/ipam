@@ -6,7 +6,7 @@ use App\Subnets;
 use App\Printers;
 use App\Computers;
 use App\Placeholders;
-use App\ChartFunctions;
+use App\Charts;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -84,11 +84,11 @@ class PagesController extends Controller
 
     }
 
-    public function equipmentCharts()
+    public function exampleCharts()
     {
         $title = [
 
-            'title' => 'Equipment'
+            'title' => 'Example Charts'
 
         ];
 
@@ -106,7 +106,7 @@ class PagesController extends Controller
             'Light-UI' => '../light/layout',
         ];
 
-        $charts = collect(
+        $doughnutCharts = collect(
             [
                 [
                     'class' => 'ex-graph',
@@ -129,7 +129,6 @@ class PagesController extends Controller
                     'name' => 'Stantz',
                     'chartHeading' => 'Ray vs Slimer'
                 ],
-                //TODO make loop ???
                 [
                     'class' => 'ex-graph',
                     'width' => '200',
@@ -145,11 +144,11 @@ class PagesController extends Controller
                 ]
             ]);
 
-        return view('equipment')->with('title', $title)->with('dashboards', $dashboards)->with('more', $more)->with('charts', $charts);
+        return view('example-charts')->with('title', $title)->with('dashboards', $dashboards)->with('more', $more)->with('doughnutCharts', $doughnutCharts);
     }
 
 
-    public function chartChart(ChartFunctions $chartFunctions){
+    public function equipmentCharts(Charts $charts){
 
         $title = [
 
@@ -159,7 +158,7 @@ class PagesController extends Controller
 
         $dashboards = [
 
-            'Sites' => '../tables/sites',
+            'Sites' => '../sites',
             'Subnets' => '../subnets',
             'Equipment' => '../tables/equipment',
             '...' => '../tables/...',
@@ -172,79 +171,87 @@ class PagesController extends Controller
         ];
 
         $computers = new Computers();
+        $computerData = $charts->doughnutCharts($computers, "'#1ca8dd'","'computers'", "network", "computers vs all equipment");
+        $computerClass = $computerData[0];
+        $computerWidth = $computerData[1];
+        $computerHeight = $computerData[2];
+        $computerDataChart = $computerData[3];
+        $computerDataSegmentStrokeColor = $computerData[4];
+        $computerValue = $computerData[5];
+        $computerLabel = $computerData[6];
+        $computerColor = $computerData[7];
+        $computerChartName = $computerData[8];
+        $computerChartHeading = $computerData[9];
+
         $printers = new Printers();
+        $printerData = $charts->doughnutCharts($printers, "'#1ca8dd'", "'printers'", "network", "printers vs all equipment");
+        $printerClass = $printerData[0];
+        $printerWidth = $printerData[1];
+        $printerHeight = $printerData[2];
+        $printerDataChart = $printerData[3];
+        $printerDataSegmentStrokeColor = $printerData[4];
+        $printerValue = $printerData[5];
+        $printerLabel = $printerData[6];
+        $printerColor = $printerData[7];
+        $printerChartName = $printerData[8];
+        $printerChartHeading = $printerData[9];
+
         $placeholders = new Placeholders();
+        $placeholderData = $charts->doughnutCharts($placeholders, "'#1ca8dd'", "'placeholders'", "network", "placeholders vs all equipment");
+        $placeholderClass = $placeholderData[0];
+        $placeholderWidth = $placeholderData[1];
+        $placeholderHeight = $placeholderData[2];
+        $placeholderDataChart = $placeholderData[3];
+        $placeholderDataSegmentStrokeColor = $placeholderData[4];
+        $placeholderValue = $placeholderData[5];
+        $placeholderLabel = $placeholderData[6];
+        $placeholderColor = $placeholderData[7];
+        $placeholderChartName = $placeholderData[8];
+        $placeholderChartHeading = $placeholderData[9];
 
-        $computerData = $chartFunctions->dataCollect($computers, "'#1ca8dd'","'computers'");
-        $computerValue = $computerData[0];
-        $computerColor = $computerData[1];
-        $computerLabel = $computerData[2];
+        $aggregateValue = $computerValue + $printerValue + $placeholderValue;
+        $aggregateColor = "'#1bc98e'";
+        $aggregateLabel = "'All Equipment'";
 
-        $otherValue = ($computerData[0]) * 2;
-        $otherColor = "'#1bc98e'";
-        $otherLabel = "'Aggregate'";
-
-        $computerChart = '[{ value: '.$computerValue.', color: '.$computerColor.', label: '.$computerLabel.' }, { value: '.$otherValue.', color: '.$otherColor.', label: '.$otherLabel.' }]';
+        $computerDataValue = "[{ value: $computerValue, color: $computerColor, label: $computerLabel}, { value: $aggregateValue, color: $aggregateColor, label: $aggregateLabel}]";
         $computerArray =[
-                'class' => 'ex-graph',
-                'width' => '200',
-                'height' => '200',
-                'dataChart' => 'doughnut',
-                'dataValue' => $computerChart,
-                //'dataValue' => "[{ value: 100, color: '#1ca8dd', label: 'Recurring' }, { value: 260, color: '#1bc98e', label: 'New' }]",
-                'dataSegmentStrokeColor' => '#252830',
-                'name' => 'network',
-                'chartHeading' => 'computers vs all equipment'
+            'class' => $computerClass,
+            'width' => $computerWidth,
+            'height' => $computerHeight,
+            'dataChart' => $computerDataChart,
+            'dataValue' => $computerDataValue,
+            'dataSegmentStrokeColor' => $computerDataSegmentStrokeColor,
+            'name' => $computerChartName,
+            'chartHeading' => $computerChartHeading
         ];
 
-        $printerData = $chartFunctions->dataCollect($printers, "'#1ca8dd'", "'printers'");
-        $printerValue = $printerData[0];
-        $printerColor = $printerData[1];
-        $printerLabel = $printerData[2];
-
-        $anotherValue = ($printerData[0]) * 2;
-        //$otherColor = '#1bc98e';
-        //$otherLabel = 'Aggregate';
-
-        $printerChart = '[{ value: '.$printerValue.', color: '.$printerColor.', label: '.$printerLabel.'}, { value: '.$anotherValue.', color: '.$otherColor.', label: '.$otherLabel.' }]';
+        $printerDataValue = "[{ value: $printerValue, color: $printerColor, label: $printerLabel}, { value: $aggregateValue, color: $aggregateColor, label: $aggregateLabel}]";
         $printerArray =[
-            'class' => 'ex-graph',
-            'width' => '197',
-            'height' => '197',
-            'dataChart' => 'doughnut',
-            'dataValue' => $printerChart,
-            //'dataValue' => "[{ value: 100, color: '#1ca8dd', label: 'Recurring' }, { value: 260, color: '#1bc98e', label: 'New' }]",
-            'dataSegmentStrokeColor' => '#252830',
-            'name' => 'network',
-            'chartHeading' => 'printers vs all equipment'
+            'class' => $printerClass,
+            'width' => $printerWidth,
+            'height' => $printerHeight,
+            'dataChart' => $printerDataChart,
+            'dataValue' => $printerDataValue,
+            'dataSegmentStrokeColor' => $printerDataSegmentStrokeColor,
+            'name' => $printerChartName,
+            'chartHeading' => $printerChartHeading
         ];
 
-        $placeholderData = $chartFunctions->dataCollect($placeholders, "'#1ca8dd'", "'placeholders'");
-
-        $placeholderValue = $placeholderData[0];
-        $placeholderColor = $placeholderData[1];
-        $placeholderLabel = $placeholderData[2];
-
-        $theOtherValue = ($placeholderData[0]) * 2;
-        //$otherColor = '#1bc98e';
-        //$otherLabel = 'Aggregate';
-
-        $placeholderChart = "[{ value: $placeholderValue, color: $placeholderColor, label: $placeholderLabel }, { value: $theOtherValue, color: $otherColor, label: $otherLabel } ]";
+        $placeholderDataValue = "[{ value: $placeholderValue, color: $placeholderColor, label: $placeholderLabel }, { value: $aggregateValue, color: $aggregateColor, label: $aggregateLabel}]";
         $placeholderArray =[
-            'class' => 'ex-graph',
-            'width' => '200',
-            'height' => '200',
-            'dataChart' => 'doughnut',
-            'dataValue' => $placeholderChart,
-            //'dataValue' => "[{ value: 100, color: '#1ca8dd', label: 'Recurring' }, { value: 260, color: '#1bc98e', label: 'New' }]",
-            'dataSegmentStrokeColor' => '#252830',
-            'name' => 'network',
-            'chartHeading' => 'placeholders vs all equipment'
+            'class' => $placeholderClass,
+            'width' => $placeholderWidth,
+            'height' => $placeholderHeight,
+            'dataChart' => $placeholderDataChart,
+            'dataValue' => $placeholderDataValue,
+            'dataSegmentStrokeColor' => $placeholderDataSegmentStrokeColor,
+            'name' => $placeholderChartName,
+            'chartHeading' => $placeholderChartHeading
         ];
 
         $chartCollections = [$computerArray, $printerArray, $placeholderArray];
 
-        return view('equip')->with('title', $title)->with('dashboards', $dashboards)->with('more', $more)->with('chartCollections', $chartCollections);
+        return view('equipment')->with('title', $title)->with('dashboards', $dashboards)->with('more', $more)->with('chartCollections', $chartCollections);
     }
 
 }

@@ -15,7 +15,8 @@ use App\Printers;
 use App\Placeholders;
 
 
-class ChartFunctions extends Controller
+//TODO: refactor as Charts
+class Charts extends Controller
 {
 
 //    public function dataCollect(Model $model, $label, $color)
@@ -40,19 +41,30 @@ class ChartFunctions extends Controller
 //        return $this->dataCollect($model, $label, $color);
 //    }
 
-var $count;
+var $value;
+var $name;
+var $chartHeading;
 
-    public function dataCollect(Model $model, $label, $color){
+    public function doughnutCharts(Model $model, $color, $label, $name, $chartHeading){
+
+        $class = "ex-graph";
+        $width = "200";
+        $height = "200";
+        $dataChart = "doughnut";
+        $dataSegmentStrokeColor = '#252830';
+
+        $this->name = $name;
+        $this->chartHeading = $chartHeading;
 
         if ($model instanceof Computers){
-            $this->count = Computers::all()->count();
+            $this->value = Computers::all()->count();
         }elseif ($model instanceof Printers){
-            $this->count = Printers::all()->count();
+            $this->value = Printers::all()->count();
         }else{
-            $this->count = Placeholders::all()->count();
+            $this->value = Placeholders::all()->count();
         }
 
-        return [$this->count, $label, $color];
+        return [$class, $width, $height, $dataChart, $dataSegmentStrokeColor, $this->value, $label, $color, $this->name, $this->chartHeading];
     }
 
 }

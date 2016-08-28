@@ -42,19 +42,19 @@
 @section('tier1content')
 <div class="row text-center m-t-lg">
 
-    @foreach($chartCollections as $chartCollection)
+    @foreach($doughnutCharts as $doughnutChart)
     <div class="col-sm-4 m-b-md">
         <div class="w-lg m-x-auto">
             <canvas
-                class="{{ $chartCollection['class'] }}"
-                width="{{ $chartCollection['width'] }}" height="{{ $chartCollection['height'] }}"
-                data-chart="{{ $chartCollection['dataChart'] }}"
-                data-value="{{ $chartCollection['dataValue'] }}"
-                data-segment-stroke-color="{{ $chartCollection['dataSegmentStrokeColor'] }}">
+                    class="{{ $doughnutChart['class'] }}"
+                    width="{{ $doughnutChart['width'] }}" height="{{ $doughnutChart['height'] }}"
+                    data-chart="{{ $doughnutChart['dataChart'] }}"
+                    data-value="{{ $doughnutChart['dataValue'] }}"
+                    data-segment-stroke-color="{{ $doughnutChart['dataSegmentStrokeColor'] }}">
             </canvas>
         </div>
-        <strong class="text-muted">{{ $chartCollection['name'] }}</strong>
-        <h3>{{ $chartCollection['chartHeading'] }}</h3>
+        <strong class="text-muted">{{ $doughnutChart['name'] }}</strong>
+        <h3>{{ $doughnutChart['chartHeading'] }}</h3>
     </div>
     @endforeach
 

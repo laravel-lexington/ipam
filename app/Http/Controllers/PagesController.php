@@ -12,7 +12,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
-
+//TODO split into Network and Equipment Controllers -> class is too big
 class PagesController extends Controller
 {
 

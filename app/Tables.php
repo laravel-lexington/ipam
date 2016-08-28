@@ -15,5 +15,15 @@ use App\Http\Requests;
 
 class Tables//should it be a model?
 {
-    //
+    public function computersTable(){
+        $computers = Computers::all();
+    }
+
+    public function printersTable(){
+        $printers = Printers::all();
+    }
+
+    public function placeholdersTable(){
+        $placeholders = Placeholders::all();
+    }
 }

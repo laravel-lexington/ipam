@@ -41,7 +41,37 @@
     </style>
 @endsection
 
-<body>
+<!--<body>-->
+@section('table')
+<table class="table" data-sort="table">
+    <thead>
+    <tr>
+        <th><input type="checkbox" class="select-all" id="selectAll"></th>
+        <th>id</th>
+        <th>site_id</th>
+        <th>subnet_node_id</th>
+        <th>ip_address</th>
+        <th>prefix_length</th>
+        <th>name</th>
+        <th>default_gateway</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach($subnets as $subnet)
+    <tr>
+        <td><input type="checkbox" class="select-row"></td>
+        <td><a href="#">{{ $subnet->id }}</a></td>
+        <td>{{ $subnet->site_id }}</td>
+        <td>{{ $subnet->subnet_node_id }}</td>
+        <td>{{ $subnet->ip_address }}</td>
+        <td>{{ $subnet->prefix_length }}</td>
+        <td>{{ $subnet->name }}</td>
+        <td>{{ $subnet->default_gateway }}</td>
+    </tr>
+    @endforeach
+    </tbody>
+</table>
+@endsection
 
 @section('modal')
     <div id="docsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

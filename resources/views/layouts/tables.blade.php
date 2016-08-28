@@ -104,40 +104,7 @@
 
             <div class="table-full">
                 <div class="table-responsive">
-                    <table class="table" data-sort="table">
-                        <thead>
-                        <tr>
-                            <th><input type="checkbox" class="select-all" id="selectAll"></th>
-                            <th>id</th>
-                            <th>site_id</th>
-                            <th>subnet_node_id</th>
-                            <th>ip_address</th>
-                            <th>prefix_length</th>
-                            <th>name</th>
-                            <th>default_gateway</th>
-<!--                            <th>created_at</th>-->
-                            <!--<th><input type="checkbox" class="select-all" id="selectAll"></th>-->
-                            <!--/@/foreach($columnHeaders as $header)-->
-                            <!--<th>{/{ $header }}</th>-->
-                            <!--/@/endforeach-->
-                        </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($subnets as $subnet)
-                        <tr>
-                            <td><input type="checkbox" class="select-row"></td>
-                            <td><a href="#">{{ $subnet->id }}</a></td>
-                            <td>{{ $subnet->site_id }}</td>
-                            <td>{{ $subnet->subnet_node_id }}</td>
-                            <td>{{ $subnet->ip_address }}</td>
-                            <td>{{ $subnet->prefix_length }}</td>
-                            <td>{{ $subnet->name }}</td>
-                            <td>{{ $subnet->default_gateway }}</td>
-<!--                            <td>{{ $subnet->created_at }}</td>-->
-                        </tr>
-                        @endforeach
-                        </tbody>
-                    </table>
+                    @yield('table')
                 </div>
             </div>
 

@@ -149,73 +149,9 @@
 
             <div class="row">
                 <div class="col-md-6 m-b-md">
-                    <div class="list-group">
-                        <h4 class="list-group-header">
-                            Countries
-                        </h4>
 
-                        <a class="list-group-item" href="#">
-                            <span class="list-group-progress" style="width: 62.4%;"></span>
-                            <span class="pull-right text-muted">62.4%</span>
-                            United States
-                        </a>
+                    @yield('tier3list1')
 
-                        <a class="list-group-item" href="#">
-                            <span class="list-group-progress" style="width: 15.0%;"></span>
-                            <span class="pull-right text-muted">15.0%</span>
-                            India
-                        </a>
-
-                        <a class="list-group-item" href="#">
-                            <span class="list-group-progress" style="width: 5.0%;"></span>
-                            <span class="pull-right text-muted">5.0%</span>
-                            United Kingdom
-                        </a>
-
-                        <a class="list-group-item" href="#">
-                            <span class="list-group-progress" style="width: 5.0%;"></span>
-                            <span class="pull-right text-muted">5.0%</span>
-                            Canada
-                        </a>
-
-                        <a class="list-group-item" href="#">
-                            <span class="list-group-progress" style="width: 4.5%;"></span>
-                            <span class="pull-right text-muted">4.5%</span>
-                            Russia
-                        </a>
-
-                        <a class="list-group-item" href="#">
-                            <span class="list-group-progress" style="width: 2.3%;"></span>
-                            <span class="pull-right text-muted">2.3%</span>
-                            Mexico
-                        </a>
-
-                        <a class="list-group-item" href="#">
-                            <span class="list-group-progress" style="width: 1.7%;"></span>
-                            <span class="pull-right text-muted">1.7%</span>
-                            Spain
-                        </a>
-
-                        <a class="list-group-item" href="#">
-                            <span class="list-group-progress" style="width: 1.5%;"></span>
-                            <span class="pull-right text-muted">1.5%</span>
-                            France
-                        </a>
-
-                        <a class="list-group-item" href="#">
-                            <span class="list-group-progress" style="width: 1.4%;"></span>
-                            <span class="pull-right text-muted">1.4%</span>
-                            South Africa
-                        </a>
-
-                        <a class="list-group-item" href="#">
-                            <span class="list-group-progress" style="width: 1.2%;"></span>
-                            <span class="pull-right text-muted">1.2%</span>
-                            Japan
-                        </a>
-
-                    </div>
-                    <a href="#" class="btn btn-primary-outline p-x">All countries</a>
                 </div>
                 <div class="col-md-6 m-b-md">
                     <div class="list-group">

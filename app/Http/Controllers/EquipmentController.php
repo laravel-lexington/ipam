@@ -7,6 +7,8 @@ use App\Models\Database\Printers;
 use App\Models\Database\Computers;
 use App\Models\Database\Placeholders;
 use App\Models\Page\Charts;
+use App\Models\Page\Tables;
+use App\Models\Page\Lists;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -30,7 +32,7 @@ class EquipmentController extends Controller
     ];
 
     //public function equipmentCharts(Charts $charts, Tables $tables){
-    public function equipmentCharts(Charts $charts){
+    public function equipmentCharts(Charts $charts, Lists $lists){
 
 
         $title = [
@@ -39,26 +41,9 @@ class EquipmentController extends Controller
 
         ];
 
-        //$menu = $this->menu;
+        $menu = $this->menu;
 
-        $menu = [
-            'Sites' => '../sites',
-            'Subnets' => '../subnets',
-            'Equipment' => '../equipment',
-            //'...' => '../tables/...',
-            '...' => ''
-
-        ];
-
-        //$submenu = $this->submenu;
-        $submenu = [
-            //'Computers' => '../equipment/computers',
-            //'Printers' => '../equipment/printers',
-            //'Placeholders' => '../equipment/placeholders',
-            'Computers' => '',
-            'Printers' => '',
-            'Placeholders' => ''
-        ];
+        $submenu = $this->submenu;
 
         $computers = new Computers();
         $computerData = $charts->doughnutCharts($computers, "'#1ca8dd'","'computers'", "network", "computers vs all equipment");
@@ -141,8 +126,14 @@ class EquipmentController extends Controller
 
         $chartCollections = [$computerArray, $printerArray, $placeholderArray];
 
+        $listComputers = $lists->equipmentLists($computers);
 
-        return view('equipment')->with('title', $title)->with('menu', $menu)->with('submenu', $submenu)->with('chartCollections', $chartCollections);
+        //$listPrinters = new Lists($printers);
+
+        //$listPlaceholders = new Lists($placeholders);
+
+
+        return view('equipment')->with('title', $title)->with('menu', $menu)->with('submenu', $submenu)->with('chartCollections', $chartCollections)->with('listComputers', $listComputers);//->with('listPrinters', $listPrinters);
     }
 
     //stores an instance of Subnets as a new row in the computers table

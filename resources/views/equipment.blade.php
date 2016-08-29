@@ -61,6 +61,28 @@
 </div>
 @endsection
 
+@section('tier3list1')
+    <div class="list-group">
+        <h4 class="list-group-header">
+            <!--printers-->
+            Computers
+        </h4>
+
+        @foreach($listComputers as $listComputer)
+        <a class="list-group-item" href="#">
+            <!--progress span not needed here-->
+            <!--<span class="list-group-progress" style="width: 62.4%;"></span>-->
+            <!--???printer subnet name or ip address???-->
+            <span class="pull-right text-muted">{{$listComputer['ip_address']}}</span>
+            <!--printer name-->
+            {{$listComputer['mac_address']}}
+        </a>
+        @endforeach
+
+    </div>
+    <a href="#" class="btn btn-primary-outline p-x">All Computers</a>
+@endsection
+
 @section('modal')
 <div id="docsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog">

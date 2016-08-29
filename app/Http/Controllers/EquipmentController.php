@@ -31,6 +31,7 @@ class EquipmentController extends Controller
         'Placeholders' => '../equipment/placeholders',
     ];
 
+
     //public function equipmentCharts(Charts $charts, Tables $tables){
     public function equipmentCharts(Charts $charts, Lists $lists){
 
@@ -128,12 +129,11 @@ class EquipmentController extends Controller
 
         $listComputers = $lists->equipmentLists($computers);
 
-        //$listPrinters = new Lists($printers);
+        $listPrinters = $lists->equipmentLists($printers);
 
-        //$listPlaceholders = new Lists($placeholders);
+        $listPlaceholders = $lists->equipmentLists($placeholders);
 
-
-        return view('equipment')->with('title', $title)->with('menu', $menu)->with('submenu', $submenu)->with('chartCollections', $chartCollections)->with('listComputers', $listComputers);//->with('listPrinters', $listPrinters);
+        return view('equipment')->with('title', $title)->with('menu', $menu)->with('submenu', $submenu)->with('chartCollections', $chartCollections)->with('listComputers', $listComputers)->with('listPrinters', $listPrinters)->with('listPlaceholders', $listPlaceholders);
     }
 
     //stores an instance of Subnets as a new row in the computers table

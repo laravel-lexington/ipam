@@ -69,18 +69,48 @@
         </h4>
 
         @foreach($listComputers as $listComputer)
-        <a class="list-group-item" href="#">
-            <!--progress span not needed here-->
-            <!--<span class="list-group-progress" style="width: 62.4%;"></span>-->
-            <!--???printer subnet name or ip address???-->
-            <span class="pull-right text-muted">{{$listComputer['ip_address']}}</span>
-            <!--printer name-->
-            {{$listComputer['mac_address']}}
-        </a>
+            <a class="list-group-item" href="#">
+                <span class="pull-right text-muted">{{ $listComputer['ip_address'] }}</span>
+                {{ $listComputer['mac_address'] }}
+            </a>
         @endforeach
 
     </div>
     <a href="#" class="btn btn-primary-outline p-x">All Computers</a>
+@endsection
+
+@section('tier3list2')
+    <div class="list-group">
+        <h4 class="list-group-header">
+            Printers
+        </h4>
+
+        @foreach($listPrinters as $listPrinter)
+            <a class="list-group-item" href="#">
+                <span class="pull-right text-muted">{{ $listPrinter['ip_address'] }}</span>
+                {{ $listPrinter['mac_address'] }}
+            </a>
+        @endforeach
+
+    </div>
+    <a href="#" class="btn btn-primary-outline p-x">All Printers</a>
+@endsection
+
+@section('tier3list3')
+    <div class="list-group">
+        <h4 class="list-group-header">
+            Placeholders
+        </h4>
+
+        @foreach($listPlaceholders as $listPlaceholder)
+            <a class="list-group-item" href="#">
+                <span class="pull-right text-muted">{{ $listPlaceholder['ip_address'] }}</span>
+                {{ $listPlaceholder['mac_address'] }}
+            </a>
+        @endforeach
+
+    </div>
+    <a href="#" class="btn btn-primary-outline p-x">All Placeholders</a>
 @endsection
 
 @section('modal')

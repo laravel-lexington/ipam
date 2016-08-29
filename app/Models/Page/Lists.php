@@ -11,23 +11,39 @@ use App\Models\Database\Placeholders;
 
 class Lists
 {
+
+    var $listLimit;
     
-    var $equipment;
-    var $listHeading;
-
     public function equipmentLists(Model $model){
-
-        if ($model instanceof Computers){
-            $this->equipment = Computers::all();
-            $this->listHeading = "Computers";
-        }elseif ($model instanceof Printers){
-            $this->equipment = Printers::all();
-            $this->listHeading = "Printers";
-        }else{
-            $this->equipment = Placeholders::all();
-            $this->listHeading = "Placeholders";
-        }
         
+        $computerCount = Computers::all()->count();
+        $printerCount = Printers::all()->count();
+        $placeholderCount = Placeholders::all()->count();
+
+        if ($computerCount <= $printerCount && $computerCount <= $placeholderCount){
+            $this->listLimit = $computerCount;
+        } elseif ($printerCount <= $computerCount && $printerCount <= $placeholderCount){
+            $this->listLimit = $printerCount;
+        } else {
+            $this->listLimit = $placeholderCount;
+        }
+
+        $limit = $this->listLimit;
+
+        if ($model instanceof Computers) {
+            $computers = Computers::all();
+            $computerSlice = $computers->slice(0, $limit);
+            return $computerSlice->all();
+        } elseif ($model instanceof Printers) {
+            $printers = Printers::all();
+            $printerSlice = $printers->slice(0, $limit);
+            return $printerSlice->all();
+        } else {
+            $placeholders = Placeholders::all();
+            $placeholderSlice = $placeholders->slice(0, $limit);
+            return $placeholderSlice->all();
+        }
+
     }
 
 }

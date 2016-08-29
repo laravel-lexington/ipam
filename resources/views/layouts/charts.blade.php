@@ -154,123 +154,19 @@
 
                 </div>
                 <div class="col-md-6 m-b-md">
-                    <div class="list-group">
-                        <h4 class="list-group-header">
-                            Most visited pages
-                        </h4>
 
-                        <a class="list-group-item" href="#">
-                            <span class="pull-right text-muted">3,929,481</span>
-                            / (Logged out)
-                        </a>
+                    @yield('tier3list2')
 
-                        <a class="list-group-item" href="#">
-                            <span class="pull-right text-muted">1,143,393</span>
-                            / (Logged in)
-                        </a>
-
-                        <a class="list-group-item" href="#">
-                            <span class="pull-right text-muted">938,287</span>
-                            /tour
-                        </a>
-
-                        <a class="list-group-item" href="#">
-                            <span class="pull-right text-muted">749,393</span>
-                            /features/something
-                        </a>
-
-                        <a class="list-group-item" href="#">
-                            <span class="pull-right text-muted">695,912</span>
-                            /features/another-thing
-                        </a>
-
-                        <a class="list-group-item" href="#">
-                            <span class="pull-right text-muted">501,938</span>
-                            /users/username
-                        </a>
-
-                        <a class="list-group-item" href="#">
-                            <span class="pull-right text-muted">392,842</span>
-                            /page-title
-                        </a>
-
-                        <a class="list-group-item" href="#">
-                            <span class="pull-right text-muted">298,183</span>
-                            /some/page-slug
-                        </a>
-
-                        <a class="list-group-item" href="#">
-                            <span class="pull-right text-muted">193,129</span>
-                            /another/directory/and/page-title
-                        </a>
-
-                        <a class="list-group-item" href="#">
-                            <span class="pull-right text-muted">93,382</span>
-                            /one-more/page/directory/file-name
-                        </a>
-
-                    </div>
-                    <a href="#" class="btn btn-primary-outline p-x">View all pages</a>
                 </div>
             </div>
 
-            <div class="list-group">
-                <h4 class="list-group-header">
-                    Devices and resolutions
-                </h4>
+            <div class="row">
+                <div class="col-md-12 m-b-md">
 
-                <a class="list-group-item" href="#">
-                    <span class="pull-right text-muted">3,929,481</span>
-                    Desktop (1920x1080)
-                </a>
+                @yield('tier3list3')
 
-                <a class="list-group-item" href="#">
-                    <span class="pull-right text-muted">1,143,393</span>
-                    Desktop (1366x768)
-                </a>
-
-                <a class="list-group-item" href="#">
-                    <span class="pull-right text-muted">938,287</span>
-                    Desktop (1440x900)
-                </a>
-
-                <a class="list-group-item" href="#">
-                    <span class="pull-right text-muted">749,393</span>
-                    Desktop (1280x800)
-                </a>
-
-                <a class="list-group-item" href="#">
-                    <span class="pull-right text-muted">695,912</span>
-                    Tablet (1024x768)
-                </a>
-
-                <a class="list-group-item" href="#">
-                    <span class="pull-right text-muted">501,938</span>
-                    Tablet (768x1024)
-                </a>
-
-                <a class="list-group-item" href="#">
-                    <span class="pull-right text-muted">392,842</span>
-                    Phone (320x480)
-                </a>
-
-                <a class="list-group-item" href="#">
-                    <span class="pull-right text-muted">298,183</span>
-                    Phone (720x450)
-                </a>
-
-                <a class="list-group-item" href="#">
-                    <span class="pull-right text-muted">193,129</span>
-                    Desktop (2560x1080)
-                </a>
-
-                <a class="list-group-item" href="#">
-                    <span class="pull-right text-muted">93,382</span>
-                    Desktop (2560x1600)
-                </a>
-
+                </div>
             </div>
-            <a href="#" class="btn btn-primary-outline p-x">View all devices</a>
 
         </div>
     </div>

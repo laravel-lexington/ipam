@@ -1,13 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models\Page;
+
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Database\Eloquent\Model;
-use App\Computers;
-use App\Printers;
-use App\Placeholders;
-
+use App\Models\Database\Computers;
+use App\Models\Database\Printers;
+use App\Models\Database\Placeholders;
 
 use Illuminate\Http\Request;
 

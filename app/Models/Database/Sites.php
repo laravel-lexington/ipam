@@ -1,10 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Models\Database;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Permission_Types extends Model
+class Sites extends Model
 {
     //
 }
+

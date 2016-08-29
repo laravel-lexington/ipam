@@ -27,8 +27,8 @@ Route::get('example', function () {
 
 Route::get('subnets', 'PagesController@subnetsTable');
 
-Route::get('subnetsInherits', 'PagesController@subnetsTableInherits');
-
 Route::get('example-charts', 'PagesController@exampleCharts');
 
-Route::get('equipment', 'PagesController@equipmentCharts');
+//Route::get('equipment', 'PagesController@equipmentCharts');
+
+Route::get('equipment', 'EquipmentController@equipmentCharts');

@@ -71,7 +71,7 @@
                 <h4 class="modal-title" id="myModalLabel">Example modal</h4>
             </div>
             <div class="modal-body">
-                <p>You're looking at an example modal on the Entities page.</p>
+                <p>You're looking at an example modal on the Equipment page.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cool, got it!</button>

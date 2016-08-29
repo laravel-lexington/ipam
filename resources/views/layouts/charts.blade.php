@@ -40,7 +40,7 @@
 
                         <li class="nav-header">Dashboards</li>
 
-                        @foreach($dashboards as $key => $value)
+                        @foreach($menu as $key => $value)
                         <li id="{{ $key }}">
                             <a href="{{ $value }}">{{ $key }}</a>
                         </li>
@@ -48,7 +48,7 @@
 
                         <li class="nav-header">More</li>
 
-                        @foreach($more as $key => $value)
+                        @foreach($submenu as $key => $value)
                         <li id="{{ $key }}">
                             <a href="{{ $value }}">
                                 {{ $key }}
@@ -69,7 +69,6 @@
         <div class="col-sm-9 content">
             <div class="dashhead">
                 <div class="dashhead-titles">
-                    <!--                    <h6 class="dashhead-subtitle">Dashboards, {//{ /$binary[/'binary'] }//}</h6>-->
                     <h6 class="dashhead-subtitle">Dashboards</h6>
 
                     <h2 class="dashhead-title"> {{ $title['title'] }}</h2>
@@ -85,11 +84,7 @@
 
             <hr class="m-t">
 
-<!--            <div class="row text-center m-t-lg">-->
-
                 @yield('tier1content')
-
-<!--            </div>-->
 
             <div class="hr-divider m-t-md m-b">
                 <h3 class="hr-divider-content hr-divider-heading">Quick stats</h3>
@@ -346,24 +341,6 @@
 </div>
 
 @yield('modal')
-<!--<div id="docsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
-<!--    <div class="modal-dialog">-->
-<!--        <div class="modal-content">-->
-<!---->
-<!--            <div class="modal-header">-->
-<!--                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-<!--                <h4 class="modal-title" id="myModalLabel">Example modal</h4>-->
-<!--            </div>-->
-<!--            <div class="modal-body">-->
-<!--                <p>You're looking at an example modal in the dashboard theme.</p>-->
-<!--            </div>-->
-<!--            <div class="modal-footer">-->
-<!--                <button type="button" class="btn btn-primary" data-dismiss="modal">Cool, got it!</button>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-
 
 <script src="{{ elixir('js/jquery.min.js') }}"></script>
 <script src="{{ elixir('js/chart.js') }}"></script>

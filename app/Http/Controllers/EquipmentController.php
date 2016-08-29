@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Subnets;
-use App\Printers;
-use App\Computers;
-use App\Placeholders;
-use App\Charts;
+use App\Models\Database\Subnets;
+use App\Models\Database\Printers;
+use App\Models\Database\Computers;
+use App\Models\Database\Placeholders;
+use App\Models\Page\Charts;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
@@ -29,7 +29,9 @@ class EquipmentController extends Controller
         'Placeholders' => '../equipment/placeholders',
     ];
 
-    public function equipmentCharts(Charts $charts, Tables $tables){
+    //public function equipmentCharts(Charts $charts, Tables $tables){
+    public function equipmentCharts(Charts $charts){
+
 
         $title = [
 
@@ -37,9 +39,26 @@ class EquipmentController extends Controller
 
         ];
 
-        $menu = $this->menu;
+        //$menu = $this->menu;
 
-        $submenu = $this->submenu;
+        $menu = [
+            'Sites' => '../sites',
+            'Subnets' => '../subnets',
+            'Equipment' => '../equipment',
+            //'...' => '../tables/...',
+            '...' => ''
+
+        ];
+
+        //$submenu = $this->submenu;
+        $submenu = [
+            //'Computers' => '../equipment/computers',
+            //'Printers' => '../equipment/printers',
+            //'Placeholders' => '../equipment/placeholders',
+            'Computers' => '',
+            'Printers' => '',
+            'Placeholders' => ''
+        ];
 
         $computers = new Computers();
         $computerData = $charts->doughnutCharts($computers, "'#1ca8dd'","'computers'", "network", "computers vs all equipment");

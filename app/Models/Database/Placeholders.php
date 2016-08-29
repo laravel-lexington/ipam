@@ -1,11 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Models\Database;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-class Printers extends Model
+class Placeholders extends Model
 {
     //
 }

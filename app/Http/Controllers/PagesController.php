@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Subnets;
-use App\Printers;
-use App\Computers;
-use App\Placeholders;
-use App\Charts;
+use App\Models\Database\Subnets;
+use App\Models\Database\Printers;
+use App\Models\Database\Computers;
+use App\Models\Database\Placeholders;
+use App\Models\Page\Charts;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;

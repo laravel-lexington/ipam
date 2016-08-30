@@ -11,7 +11,7 @@
 |
 */
 
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Database\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
         'email' => $faker->safeEmail,
@@ -20,7 +20,7 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Subnets::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Database\Subnets::class, function (Faker\Generator $faker) {
     $ip = $faker->ipv4;
     $netmask = $faker->ipv4;
     $prefix_length = $faker->netmask2cidr($netmask);
@@ -35,12 +35,12 @@ $factory->define(App\Subnets::class, function (Faker\Generator $faker) {
         'subnet_node_id' => $faker->numberBetween(1, 50),
         'ip_address' => $faker->getIpAddress(),
         'prefix_length' => $faker->getCidr(),
-        'name' => $faker->name,
+        'name' => $faker->lastName,
         'default_gateway' => $faker->getDefaultGateway()
     ];
 });
 
-$factory->define(App\Printers::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Database\Printers::class, function (Faker\Generator $faker) {
     return [
         'subnet_id' => $faker->numberBetween(1, 50),
         'ip_address' => $faker->ipv4,
@@ -51,7 +51,7 @@ $factory->define(App\Printers::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Computers::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Database\Computers::class, function (Faker\Generator $faker) {
     return [
         'subnet_id' => $faker->numberBetween(1, 50),
         'ip_address' => $faker->ipv4,
@@ -72,7 +72,7 @@ $factory->define(App\Computers::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Placeholders::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Database\Placeholders::class, function (Faker\Generator $faker) {
     return [
         'subnet_id' => $faker->numberBetween(1, 50),
         'ip_address' => $faker->ipv4,
@@ -81,7 +81,7 @@ $factory->define(App\Placeholders::class, function (Faker\Generator $faker) {
     ];
 });
 
-$factory->define(App\Entity_Types::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Database\Entity_Types::class, function (Faker\Generator $faker) {
     return [
 //
     ];

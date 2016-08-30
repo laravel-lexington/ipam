@@ -22,7 +22,6 @@ class EquipmentController extends Controller
     'Sites' => '../sites',
     'Subnets' => '../subnets',
     'Equipment' => '../equipment',
-//    '...' => '../tables/...',
     ];
 
     var $submenu = [
@@ -31,10 +30,7 @@ class EquipmentController extends Controller
         'Placeholders' => '../equipment/placeholders',
     ];
 
-
-    //public function equipmentCharts(Charts $charts, Tables $tables){
     public function equipmentCharts(Charts $charts, Lists $lists, Request $request){
-
 
         $title = [
 
@@ -50,11 +46,8 @@ class EquipmentController extends Controller
         $this->uiTheme = elixir('css/toolkit-inverse.css');
         }
 
-
         $uiTheme = $this->uiTheme;
-
         $menu = $this->menu;
-
         $submenu = $this->submenu;
 
         $computers = new Computers();
@@ -137,11 +130,8 @@ class EquipmentController extends Controller
         ];
 
         $chartCollections = [$computerArray, $printerArray, $placeholderArray];
-
         $listComputers = $lists->equipmentLists($computers);
-
         $listPrinters = $lists->equipmentLists($printers);
-
         $listPlaceholders = $lists->equipmentLists($placeholders);
 
         return view('equipment')->with('title', $title)->with('uiTheme', $uiTheme)->with('menu', $menu)->with('submenu', $submenu)->with('chartCollections', $chartCollections)->with('listComputers', $listComputers)->with('listPrinters', $listPrinters)->with('listPlaceholders', $listPlaceholders);

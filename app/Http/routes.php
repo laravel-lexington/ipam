@@ -25,13 +25,9 @@ Route::get('example', function () {
     return view('example');
 });
 
-Route::get('subnets', 'PagesController@subnetsTable');
+Route::get('subnets', 'NetworkController@subnetsTable');
 
-Route::post('subnets', 'PagesController@subnetsTable');
-
-Route::get('example-charts', 'PagesController@exampleCharts');
-
-//Route::get('equipment', 'PagesController@equipmentCharts');
+Route::post('subnets', 'NetworkController@subnetsTable');
 
 Route::get('equipment', 'EquipmentController@equipmentCharts');
 

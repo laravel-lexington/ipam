@@ -31,7 +31,7 @@ $factory->define(App\Models\Database\Subnets::class, function (Faker\Generator $
     $faker->setDefaultGateway($default_gateway);
 
     return [
-        'site_id' => $faker->numberBetween(1, 50),
+        'site_id' => $faker->numberBetween(1, 12),
         'subnet_node_id' => $faker->numberBetween(1, 50),
         'ip_address' => $faker->getIpAddress(),
         'prefix_length' => $faker->getCidr(),
@@ -81,8 +81,15 @@ $factory->define(App\Models\Database\Placeholders::class, function (Faker\Genera
     ];
 });
 
-$factory->define(App\Models\Database\Entity_Types::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Database\Sites::class, function (Faker\Generator $faker) {
+
+    $buildingName = $faker->lastName . " Bldg.";
+    $abbreviation = strtoupper(substr($buildingName, 0, 3));
+
     return [
-//
+        'name' => $buildingName,
+        'abbreviation' => $abbreviation,
+        'address' => $faker->streetAddress,
+        'vlan_id' => $faker->randomNumber(5)
     ];
 });

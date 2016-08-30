@@ -37,6 +37,9 @@ class DatabaseSeeder extends Seeder
         App\Models\Database\Placeholders::truncate();
         factory(App\Models\Database\Placeholders::class, 30)->create();
 
+        App\Models\Database\Sites::truncate();
+        factory(App\Models\Database\Sites::class, 12)->create();
+
         Model::reguard();
     }
 }

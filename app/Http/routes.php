@@ -25,10 +25,11 @@ Route::get('example', function () {
     return view('example');
 });
 
-Route::get('subnets', 'NetworkController@subnetsTable');
+Route::get('sites', 'SiteController@sitesTable');
+Route::post('sites', 'SiteController@sitesTable');
 
+Route::get('subnets', 'NetworkController@subnetsTable');
 Route::post('subnets', 'NetworkController@subnetsTable');
 
 Route::get('equipment', 'EquipmentController@equipmentCharts');
-
 Route::post('equipment', 'EquipmentController@equipmentCharts');

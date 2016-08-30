@@ -13,16 +13,16 @@ use App\Models\Page\Lists;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-
 class EquipmentController extends Controller
 {
+
+    var $uiTheme;
 
     var $menu = [
     'Sites' => '../sites',
     'Subnets' => '../subnets',
     'Equipment' => '../equipment',
-    '...' => '../tables/...',
+//    '...' => '../tables/...',
     ];
 
     var $submenu = [
@@ -33,7 +33,7 @@ class EquipmentController extends Controller
 
 
     //public function equipmentCharts(Charts $charts, Tables $tables){
-    public function equipmentCharts(Charts $charts, Lists $lists){
+    public function equipmentCharts(Charts $charts, Lists $lists, Request $request){
 
 
         $title = [
@@ -41,6 +41,17 @@ class EquipmentController extends Controller
             'title' => 'Equipment'
 
         ];
+
+        if ($request->button == "light"){
+            $this->uiTheme = elixir('css/toolkit-light.css');
+        }elseif ($request->button == "dark") {
+            $this->uiTheme = elixir('css/toolkit-inverse.css');
+        } else {
+        $this->uiTheme = elixir('css/toolkit-inverse.css');
+        }
+
+
+        $uiTheme = $this->uiTheme;
 
         $menu = $this->menu;
 
@@ -133,7 +144,7 @@ class EquipmentController extends Controller
 
         $listPlaceholders = $lists->equipmentLists($placeholders);
 
-        return view('equipment')->with('title', $title)->with('menu', $menu)->with('submenu', $submenu)->with('chartCollections', $chartCollections)->with('listComputers', $listComputers)->with('listPrinters', $listPrinters)->with('listPlaceholders', $listPlaceholders);
+        return view('equipment')->with('title', $title)->with('uiTheme', $uiTheme)->with('menu', $menu)->with('submenu', $submenu)->with('chartCollections', $chartCollections)->with('listComputers', $listComputers)->with('listPrinters', $listPrinters)->with('listPlaceholders', $listPlaceholders);
     }
 
     //stores an instance of Subnets as a new row in the computers table
@@ -193,6 +204,6 @@ class EquipmentController extends Controller
 
     }
 
-    //public function equipmentTables(Tables $tables){}
+    public function equipmentTables(Tables $tables){}
 
 }

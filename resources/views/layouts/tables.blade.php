@@ -29,6 +29,28 @@
                 </div>
 
                 <div class="collapse nav-toggleable-sm" id="nav-toggleable-sm">
+
+
+                    <form class="sidebar-form" method="post" action="/subnets">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                        <div class="row">
+                            <div class="input-group">
+                                <div class="container-fluid">
+                                    <span class="input-group-btn">
+                                        <button name="button" class="btn btn-primary-outline form-control" value="dark" type="submit">
+                                            <span class="icon icon-light-down">dark-ui</span>
+                                        </button>
+                                    </span>
+                                    <span class="input-group-btn">
+                                        <button name="button" class="btn btn-warning-outline form-control" value="light" type="submit">
+                                            <span class="icon icon-light-up">light-ui</span>
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
                     <form class="sidebar-form">
                         <input class="form-control" type="text" placeholder="Search...">
                         <button type="submit" class="btn-link">
@@ -40,20 +62,21 @@
 
                         <li class="nav-header">Dashboards</li>
 
-                        @foreach($dashboards as $key => $value)
-                        <li id="{{ $key }}">
-                            <a href="{{ $value }}">{{ $key }}</a>
-                        </li>
+                        @foreach($menu as $key => $value)
+                            <li id="{{ $key }}">
+                                <a href="{{ $value }}">{{ $key }}</a>
+                            </li>
                         @endforeach
+
 
                         <li class="nav-header">More</li>
 
-                        @foreach($more as $key => $value)
-                        <li id="{{ $key }}">
-                            <a href="{{ $value }}">
-                                {{ $key }}
-                            </a>
-                        </li>
+                        @foreach($submenu as $key => $value)
+                            <li id="{{ $key }}">
+                                <a href="{{ $value }}">
+                                    {{ $key }}
+                                </a>
+                            </li>
                         @endforeach
                         <li>
                             <a href="#docsModal" data-toggle="modal">

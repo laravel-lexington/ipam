@@ -11,17 +11,27 @@ use App\Models\Page\Charts;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 //TODO split into Network and Equipment Controllers -> class is too big
 class PagesController extends Controller
 {
 
-    public function subnetsTable()
+    var $uiTheme;
+
+    var $menu = [
+        'Sites' => '../sites',
+        'Subnets' => '../subnets',
+        'Equipment' => '../equipment',
+    ];
+
+    var $submenu = [
+        'Computers' => '../equipment/computers',
+        'Printers' => '../equipment/printers',
+        'Placeholders' => '../equipment/placeholders',
+    ];
+
+    public function subnetsTable(Request $request)
     {
 
-        //$columnHeaders = $subnets->keys();
-
-        //$object = var_dump($columnHeaders);
 
         $title = [
 
@@ -29,39 +39,24 @@ class PagesController extends Controller
 
         ];
 
-        $dashboards = [
+        if ($request->button == "light"){
+            $this->uiTheme = elixir('css/toolkit-light.css');
+        }elseif ($request->button == "dark") {
+            $this->uiTheme = elixir('css/toolkit-inverse.css');
+        } else {
+            $this->uiTheme = elixir('css/toolkit-inverse.css');
+        }
 
-            'Sites' => '../tables/sites',
-            'Subnets' => '../subnets',
-            'Equipment' => '../equipment',
-            '...' => '../tables/...',
-        ];
+        $uiTheme = $this->uiTheme;
 
-        $more = [
-            'Toolkit-docs' => '',
-            'Bootstrap-docs' => '',
-            'Light-UI' => '../light/layout',
-        ];
+        $menu = $this->menu;
+
+        $submenu = $this->submenu;
 
         $subnets = Subnets::all();
 
-        $ip = [
-
-            'ip' => long2ip(rand(0, "4294967295")),
-            'long' => ip2long('255.255.255.255'),
-
-        ];
-
-        $binary = [
-
-            //below are not valid
-            //'binary' => inet_ntop('255.255.255.255')
-            //'binary' => inet_ntop('11111111111111111111111111111111')
-
-        ];
-
         //TODO: create subnets directory and subnets/index.blade.php
-        return view('subnets')->with('title', $title)->with('dashboards', $dashboards)->with('more', $more)->with('subnets', $subnets);//->with('binary', $binary);
+        return view('subnets')->with('title', $title)->with('uiTheme', $uiTheme )->with('menu', $menu)->with('submenu', $submenu)->with('subnets', $subnets);//->with('binary', $binary);
 
     }
 

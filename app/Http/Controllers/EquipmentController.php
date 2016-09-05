@@ -77,6 +77,7 @@ class EquipmentController extends Controller
         $printerChartHeading = $printerData[9];
 
         $placeholders = new Placeholders();
+        $placeholders->equipmentType = "placeholder";
         $placeholderData = $charts->doughnutCharts($placeholders, "'#1ca8dd'", "'placeholders'", "network", "placeholders vs all equipment");
         $placeholderClass = $placeholderData[0];
         $placeholderWidth = $placeholderData[1];
@@ -129,12 +130,17 @@ class EquipmentController extends Controller
             'chartHeading' => $placeholderChartHeading
         ];
 
+        $entityType = "docs";
+
         $chartCollections = [$computerArray, $printerArray, $placeholderArray];
         $listComputers = $lists->equipmentLists($computers);
         $listPrinters = $lists->equipmentLists($printers);
         $listPlaceholders = $lists->equipmentLists($placeholders);
+        $placeholderModal = $placeholders->equipmentType;
 
-        return view('equipment')->with('title', $title)->with('uiTheme', $uiTheme)->with('menu', $menu)->with('submenu', $submenu)->with('chartCollections', $chartCollections)->with('listComputers', $listComputers)->with('listPrinters', $listPrinters)->with('listPlaceholders', $listPlaceholders);
+        return view('equipment')->with('title', $title)->with('uiTheme', $uiTheme)->with('menu', $menu)->with('submenu', $submenu)->with('chartCollections', $chartCollections)->with('listComputers', $listComputers)->with('listPrinters', $listPrinters)->with('listPlaceholders', $listPlaceholders)->with('placeholderModal', $placeholderModal);
+
+//        return view('equipment')->with('title', $title)->with('uiTheme', $uiTheme)->with('menu', $menu)->with('submenu', $submenu)->with('chartCollections', $chartCollections)->with('listComputers', $listComputers)->with('listPrinters', $listPrinters)->with('listPlaceholders', $listPlaceholders);
     }
 
     //stores an instance of Subnets as a new row in the computers table

@@ -71,7 +71,7 @@
         </h4>
 
         @foreach($listComputers as $listComputer)
-            <a class="list-group-item" href="#">
+            <a class="list-group-item" href="#docsModal" data-toggle="modal">
                 <span class="pull-right text-muted">{{ $listComputer['ip_address'] }}</span>
                 {{ $listComputer['mac_address'] }}
             </a>
@@ -88,7 +88,7 @@
         </h4>
 
         @foreach($listPrinters as $listPrinter)
-            <a class="list-group-item" href="#">
+            <a class="list-group-item" href="#docsModal" data-toggle="modal">
                 <span class="pull-right text-muted">{{ $listPrinter['ip_address'] }}</span>
                 {{ $listPrinter['mac_address'] }}
             </a>
@@ -105,7 +105,7 @@
         </h4>
 
         @foreach($listPlaceholders as $listPlaceholder)
-            <a class="list-group-item" href="#">
+            <a class="list-group-item" href="#{{$placeholderModal}}Modal" data-toggle="modal">
                 <span class="pull-right text-muted">{{ $listPlaceholder['ip_address'] }}</span>
                 {{ $listPlaceholder['mac_address'] }}
             </a>
@@ -115,8 +115,13 @@
     <a href="#" class="btn btn-primary-outline p-x">All Placeholders</a>
 @endsection
 
+
+<!--ToDo add /@/include for modal section and yield the proper one when clicking
+it will need to be a form
+it will need a class dependency-->
+
 @section('modal')
-<div id="docsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div id="placeholderModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog">
         <div class="modal-content">
 
@@ -127,6 +132,17 @@
             <div class="modal-body">
                 <p>You're looking at an example modal on the Equipment page.</p>
             </div>
+
+            <form method="POST" action="">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <div class="form-group">
+                    <textarea name="body" class="form-control"></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Add Note</button>
+                </div>
+            </form>
+
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cool, got it!</button>
             </div>

@@ -11,7 +11,6 @@ use App\Models\Page\Charts;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
-//TODO split into Network and Equipment Controllers -> class is too big
 class NetworkController extends Controller
 {
 
@@ -52,7 +51,6 @@ class NetworkController extends Controller
 
         $subnets = Subnets::all();
 
-        //TODO: create subnets directory and subnets/index.blade.php
         return view('subnets')->with('title', $title)->with('uiTheme', $uiTheme )->with('menu', $menu)->with('submenu', $submenu)->with('subnets', $subnets);//->with('binary', $binary);
 
     }

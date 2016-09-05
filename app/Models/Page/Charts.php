@@ -68,6 +68,13 @@ var $chartHeading;
         }elseif ($model instanceof Printers){
             //$this->value = Printers::all()->count();
         //TODO add additional Models to this block
+            //Subnets
+            //SubnetNodes
+            //Sites
+            //Site Locii
+            //etc
+
+
         }else{
             //$this->value = Placeholders::all()->count();
         }
@@ -97,6 +104,12 @@ var $chartHeading;
             //2 dimensional loop  [a-z followed by A-Z][1-largest available integer value]
 
             //TODO add additional Models to this block
+                //Subnets
+                //SubnetNodes
+                //Sites
+                //Site Locii
+                //etc
+
         }else{
             //$this->value = Placeholders::all()->count();
             //gather data values here

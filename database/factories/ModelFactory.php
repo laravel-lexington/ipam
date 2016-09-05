@@ -1,5 +1,9 @@
 <?php
-//TODO clean up model factory
+//TODO add model factories
+//subnetnodes
+//sitelocations
+//printer queues
+//etc
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -10,6 +14,8 @@
 | database. Just tell the factory how a default model should look.
 |
 */
+
+use Illuminate\Database\Connection;
 
 $factory->define(App\Models\Database\User::class, function (Faker\Generator $faker) {
     return [
@@ -37,6 +43,19 @@ $factory->define(App\Models\Database\Subnets::class, function (Faker\Generator $
         'prefix_length' => $faker->getCidr(),
         'name' => $faker->lastName,
         'default_gateway' => $faker->getDefaultGateway()
+    ];
+});
+
+$factory->define(App\Models\Database\Subnet_Nodes::class, function (Faker\Generator $faker) {
+
+    return [
+
+        'ip_address' => $faker->ipv4,
+        'site_location_id' => $faker->numberBetween(100, 599),
+        'entity_type_id' => $faker->numberBetween(1, 3),
+        'mac_address' => $faker->macAddress,
+        'name' => $faker->lastName,
+        'MAB_status' => $faker->boolean(50), // 50% true || false
     ];
 });
 
@@ -83,13 +102,42 @@ $factory->define(App\Models\Database\Placeholders::class, function (Faker\Genera
 
 $factory->define(App\Models\Database\Sites::class, function (Faker\Generator $faker) {
 
-    $buildingName = $faker->lastName . " Bldg.";
-    $abbreviation = strtoupper(substr($buildingName, 0, 3));
+    $buildingCollection = App\Models\Database\Sites::all();
+    $buildingAbvArray = $buildingCollection->pluck('abbreviaton');
+    $buildingName = $faker->unique()->lastName . " Bldg.";
+    $shiftAbvSubstr = 0;
+    foreach ($buildingAbvArray as $abv)
+    {
+        if ((strtoupper(substr($buildingName, 0, 3))) != $abv)
+        {
+            $shiftAbvSubstr = $shiftAbvSubstr;
+        }else{
+            $shiftAbvSubstr++;
+        }
+    };
+    if ($shiftAbvSubstr > 0)
+    {
+        $abbreviation = strtoupper(substr($buildingName, 1, 3));
+    }else{
+        $abbreviation = strtoupper(substr($buildingName, 0, 3));
+    }
 
     return [
         'name' => $buildingName,
         'abbreviation' => $abbreviation,
         'address' => $faker->streetAddress,
         'vlan_id' => $faker->randomNumber(5)
+    ];
+});
+
+$factory->define(App\Models\Database\Site_Locations::class, function (Faker\Generator $faker) {
+
+    $buildingName = $faker->lastName . " Bldg.";
+    $abbreviation = strtoupper(substr($buildingName, 0, 3));
+
+    return [
+        'site_id' => $faker->numberBetween(1, 12),
+        'building_name' => $buildingName,
+        'room_number' => $faker->numberBetween(100, 599)
     ];
 });

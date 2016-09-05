@@ -19,16 +19,25 @@ class CreateEntityTypesTable extends Migration
 
             $table->string('entity_type_table_name'); //reference table as string
 
-            $table->timestamps();
-
-            //schema
-//            $table->increments('entity_type'); //pk
-//
-//            $table->string('table_name'); //name of equipment table
-//
-//            $table->timestamps();
-
         });
+
+        DB::table('entity__types')->insert([
+
+            'entity_type_table_name' => "computer"
+
+        ]);
+
+        DB::table('entity__types')->insert([
+
+            'entity_type_table_name' => "printer"
+
+        ]);
+
+        DB::table('entity__types')->insert([
+
+            'entity_type_table_name' => "placeholder"
+
+        ]);
     }
 
     /**

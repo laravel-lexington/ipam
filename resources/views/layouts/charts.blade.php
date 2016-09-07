@@ -24,7 +24,7 @@
                         <span class="sr-only">Toggle nav</span>
                     </button>
                     <a class="sidebar-brand img-responsive" href="../index.html">
-                        <img src="favicon.png"/>
+                        <img src="../logo.png"/>
                     </a>
                 </div>
 
@@ -211,7 +211,19 @@
         $('#Overview').addClass('active');
     });
 </script>
+<script>
+    $(function() {
+        $('#equipmentModal').on("show.bs.modal", function (e) {
+            $("#equipmentId").html($(e.relatedTarget).data('id'));
+            $("#equipmentSubnetId").html($(e.relatedTarget).data('subnet_id'));
+            $("#equipmentIpAddress").html($(e.relatedTarget).data('ip_address'));
+            $("#equipmentMacAddress").html($(e.relatedTarget).data('mac_address'));
+            $("#equipmentSerialNumber").html($(e.relatedTarget).data('serial_number'));
+        });
+    });
+</script>
 </body>
 </html>
 
 
+data-id="{{ $listPlaceholder['id'] }}" data-subnet_id="{{ $listPlaceholder['subnet_id'] }}" data-ip_address="{{ $listPlaceholder['ip_address'] }}" data-mac_address="{{ $listPlaceholder['mac_address'] }}" data-serial_number="{{ $listPlaceholder['serial_number'] }}">

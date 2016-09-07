@@ -72,7 +72,7 @@
         </h4>
 
         @foreach($listComputers as $listComputer)
-            <a class="list-group-item" href="#docsModal" data-toggle="modal">
+            <a class="list-group-item" href="#equipmentModal" data-toggle="modal" data-id="{{ $listComputer['id'] }}" data-subnet_id="{{ $listComputer['subnet_id'] }}" data-ip_address="{{ $listComputer['ip_address'] }}" data-mac_address="{{ $listComputer['mac_address'] }}" data-serial_number="{{ $listComputer['serial_number'] }}">
                 <span class="pull-right text-muted">{{ $listComputer['ip_address'] }}</span>
                 {{ $listComputer['mac_address'] }}
             </a>
@@ -90,7 +90,7 @@
         </h4>
 
         @foreach($listPrinters as $listPrinter)
-            <a class="list-group-item" href="#docsModal" data-toggle="modal">
+            <a class="list-group-item" href="#equipmentModal" data-toggle="modal" data-id="{{ $listPrinter['id'] }}" data-subnet_id="{{ $listPrinter['subnet_id'] }}" data-ip_address="{{ $listPrinter['ip_address'] }}" data-mac_address="{{ $listPrinter['mac_address'] }}" data-serial_number="{{ $listPrinter['serial_number'] }}">
                 <span class="pull-right text-muted">{{ $listPrinter['ip_address'] }}</span>
                 {{ $listPrinter['mac_address'] }}
             </a>
@@ -108,7 +108,7 @@
         </h4>
 
         @foreach($listPlaceholders as $listPlaceholder)
-            <a class="list-group-item" href="#{{$placeholderModal}}Modal" data-toggle="modal">
+            <a class="list-group-item" href="#equipmentModal" data-toggle="modal" data-id="{{ $listPlaceholder['id'] }}" data-subnet_id="{{ $listPlaceholder['subnet_id'] }}" data-ip_address="{{ $listPlaceholder['ip_address'] }}" data-mac_address="{{ $listPlaceholder['mac_address'] }}" data-serial_number="{{ $listPlaceholder['serial_number'] }}">
                 <span class="pull-right text-muted">{{ $listPlaceholder['ip_address'] }}</span>
                 {{ $listPlaceholder['mac_address'] }}
             </a>
@@ -124,16 +124,24 @@ it will need to be a form
 it will need a class dependency-->
 
 @section('modal')
-<div id="placeholderModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+{{--<div id="placeholderModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">--}}
+<div id="equipmentModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog">
         <div class="modal-content">
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel"><!--{/{$equpimentFormTitle}}--></h4>
+                {{--<h4 class="modal-title" id="equipmentLabel"><!--{/{$equpimentFormTitle}}--></h4>--}}
+                <h4 class="modal-title" id="equipmentLabel"><span id="equipmentId"></span></h4>
             </div>
             <div class="modal-body">
-                <p>You're looking at the example modal for <!--{/{$equipmentForm}}-->.</p>
+                {{--<p>You're looking at the example modal for <!--{/{$equipmentForm}}-->.</p>--}}
+                <p>You're looking at the example modal for <span id="equipmentSubnetId"></span>.</p>
+                <p><span id="equipmentIpAddress"></span></p>
+                <p><span id="equipmentMacAddress"></span></p>
+                <p><span id="equipmentSerialNumber"></span></p>
+                {{--<p><span id=""></span></p>--}}
+                {{--<p><span id=""></span></p>--}}
             </div>
 
             <form method="POST" action="">

@@ -64,6 +64,7 @@
 @endsection
 
 @section('tier3list1')
+    <!--TODO: this list becomes a form-->
     <div class="list-group">
         <h4 class="list-group-header">
             <!--printers-->
@@ -82,6 +83,7 @@
 @endsection
 
 @section('tier3list2')
+    <!--TODO: this list becomes a form-->
     <div class="list-group">
         <h4 class="list-group-header">
             Printers
@@ -99,6 +101,7 @@
 @endsection
 
 @section('tier3list3')
+    <!--TODO: this list becomes a form-->
     <div class="list-group">
         <h4 class="list-group-header">
             Placeholders
@@ -127,10 +130,10 @@ it will need a class dependency-->
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="myModalLabel">Example modal</h4>
+                <h4 class="modal-title" id="myModalLabel"><!--{/{$equpimentFormTitle}}--></h4>
             </div>
             <div class="modal-body">
-                <p>You're looking at an example modal on the Equipment page.</p>
+                <p>You're looking at the example modal for <!--{/{$equipmentForm}}-->.</p>
             </div>
 
             <form method="POST" action="">
@@ -139,7 +142,7 @@ it will need a class dependency-->
                     <textarea name="body" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Add Note</button>
+                    <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </form>
 

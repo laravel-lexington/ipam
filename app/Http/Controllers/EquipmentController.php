@@ -38,6 +38,7 @@ class EquipmentController extends Controller
 
         ];
 
+        //Request $request used here to switch between light and dark themes
         if ($request->button == "light"){
             $this->uiTheme = elixir('css/toolkit-light.css');
         }elseif ($request->button == "dark") {
@@ -131,6 +132,8 @@ class EquipmentController extends Controller
         ];
 
         $entityType = "docs";
+
+        //TODO: determine if Modals php functions go here
 
         $chartCollections = [$computerArray, $printerArray, $placeholderArray];
         $listComputers = $lists->equipmentLists($computers);

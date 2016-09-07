@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ff56d6b3-2b50-497d-b076-4c0e3b9ff36d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/EquipmentController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/EquipmentController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/routes.php" afterPath="$PROJECT_DIR$/app/Http/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Database/Computers.php" afterPath="$PROJECT_DIR$/app/Models/Database/Computers.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/equipment.blade.php" afterPath="$PROJECT_DIR$/resources/views/equipment.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/charts.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/charts.blade.php" />
     </list>
     <ignored path="ipam.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -120,8 +115,8 @@
       <file leaf-file-name="EquipmentController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EquipmentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+            <state relative-caret-position="333">
+              <caret line="164" column="49" selection-start-line="164" selection-start-column="49" selection-end-line="164" selection-end-column="49" />
               <folding>
                 <element signature="e#40#72#0#PHP" expanded="true" />
                 <element signature="e#803#851#0#PHP" expanded="false" />
@@ -131,7 +126,7 @@
                 <element signature="e#3702#4093#0#PHP" expanded="false" />
                 <element signature="e#4295#4678#0#PHP" expanded="false" />
                 <element signature="e#4901#5316#0#PHP" expanded="false" />
-                <element signature="e#8175#8769#0#PHP" expanded="false" />
+                <element signature="e#8148#8742#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -471,12 +466,12 @@
       <workItem from="1473086553524" duration="3235000" />
       <workItem from="1473245104161" duration="3879000" />
       <workItem from="1473251939303" duration="135000" />
-      <workItem from="1473252087864" duration="15238000" />
+      <workItem from="1473252087864" duration="15381000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="176999000" />
+    <option name="totallyTimeSpent" value="177142000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1169,8 +1164,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/EquipmentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="165" column="0" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+        <state relative-caret-position="333">
+          <caret line="164" column="49" selection-start-line="164" selection-start-column="49" selection-end-line="164" selection-end-column="49" />
           <folding>
             <element signature="e#40#72#0#PHP" expanded="true" />
             <element signature="e#803#851#0#PHP" expanded="false" />
@@ -1180,7 +1175,7 @@
             <element signature="e#3702#4093#0#PHP" expanded="false" />
             <element signature="e#4295#4678#0#PHP" expanded="false" />
             <element signature="e#4901#5316#0#PHP" expanded="false" />
-            <element signature="e#8175#8769#0#PHP" expanded="false" />
+            <element signature="e#8148#8742#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>

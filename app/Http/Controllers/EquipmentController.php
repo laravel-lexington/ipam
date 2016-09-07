@@ -162,7 +162,7 @@ class EquipmentController extends Controller
 
 //        $computer->find($request->id);
 
-        $computer = App\Models\Database\Computers::find($request->get('id'));
+        $computer = Computers::find($request->id);
 
         $computer->subnet_id = $request->subnet_id;
         $computer->ip_address = $request->ip_address;

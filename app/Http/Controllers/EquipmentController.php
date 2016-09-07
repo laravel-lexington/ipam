@@ -150,18 +150,33 @@ class EquipmentController extends Controller
     public function storeComputers(Request $request)
     {
 
-        $computers = new Computers;
 
-        $computers->id = $request->id;
-        $computers->site_id = $request->site_id;
-        $computers->subnet_node_id = $request->subnet_node_id;
-        $computers->ip_address = $request->ip_address;
-        $computers->prefix_length = $request->prefix_length;
-        $computers->name = $request->name;
-        $computers->default_gateway = $request->default_gateway;
-        $computers->created_at = $request->created_at;
+//        $computer->all()->where('id', $request->id);
 
-        $computers->save();
+//        $os = $computer->operating_system;
+//        $vmf = $computer->virtual_machine_flag;
+//        $createdAt = $computer->created_at;
+
+
+//        $computer = new Computers;
+
+//        $computer->find($request->id);
+
+        $computer = App\Models\Database\Computers::find($request->get('id'));
+
+        $computer->subnet_id = $request->subnet_id;
+        $computer->ip_address = $request->ip_address;
+        $computer->mac_address = $request->mac_address;
+        $computer->serial_number = $request->serial_number;
+        $computer->operating_system = "OSX";
+        $computer->virtual_machine_flag = 1;
+        $computer->created_at = '2016-09-05 13:45:28';
+//        $computer->operating_system = $os;
+//        $computer->virtual_machine_flag = $vmf;
+//        $computer->created_at = $createdAt;
+        $computer->save();
+
+        return back();
 
     }
 
@@ -182,6 +197,7 @@ class EquipmentController extends Controller
 
         $printers->save();
 
+        return back();
     }
 
     //stores an instance of Placeholders as a new row in the placeholders table

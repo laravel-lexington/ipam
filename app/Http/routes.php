@@ -33,3 +33,5 @@ Route::post('subnets', 'NetworkController@subnetsTable'); //allows switching fro
 
 Route::get('equipment', 'EquipmentController@equipmentCharts');
 Route::post('equipment', 'EquipmentController@equipmentCharts'); //allows switching from dark to light theme
+
+Route::post('equipment/computers/{id}', 'EquipmentController@storeComputers'); //modal form route

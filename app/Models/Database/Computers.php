@@ -7,5 +7,5 @@ use Illuminate\Support\Facades\DB;
 
 class Computers extends Model
 {
-    //
+    protected $fillable = ['subnet_id', 'ip_address', 'mac_address', 'serial_number'];
 }

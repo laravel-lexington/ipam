@@ -129,32 +129,32 @@
             </div>
             <div class="modal-body">
 
-            <form method="POST" action="">
+            <form id="modalForm" method="POST">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
                     <label for="equipmentId">Table ID</label>
-                    <input type="text" class="form-control" id="equipmentId">
+                    <input type="text" class="form-control" name="id" id="equipmentId" disabled>
                 </div>
                 <div class="form-group">
                     <label for="equipmentSubnetId">Subnet ID</label>
-                    <input type="text" class="form-control" id="equipmentSubnetId">
+                    <input type="text" class="form-control" name="subnet_id" id="equipmentSubnetId">
                 </div>
                 <div class="form-group">
                     <label for="equipmentIpAddress">IP Address</label>
-                    <input type="text" class="form-control" id="equipmentIpAddress">
+                    <input type="text" class="form-control" name="ip_address" id="equipmentIpAddress">
                 </div>
                 <div class="form-group">
                     <label for="equipmentMacAddress">MAC Address</label>
-                    <input type="text" class="form-control" id="equipmentMacAddress">
+                    <input type="text" class="form-control" name="mac_address" id="equipmentMacAddress">
                 </div>
                 <div class="form-group">
                     <label for="equipmentSerialNumber">Serial Number</label>
-                    <input type="text" class="form-control" id="equipmentSerialNumber">
+                    <input type="text" class="form-control" name="serial_number" id="equipmentSerialNumber">
                 </div>
-                <div class="form-group">
-                    <label for="notes">Notes</label>
-                    <textarea name="body" class="form-control" id="notes"></textarea>
-                </div>
+                {{--<div class="form-group">--}}
+                    {{--<label for="notes">Notes</label>--}}
+                    {{--<textarea name="body" class="form-control" id="notes"></textarea>--}}
+                {{--</div>--}}
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>

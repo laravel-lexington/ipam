@@ -214,11 +214,17 @@
 <script>
     $(function() {
         $('#equipmentModal').on("show.bs.modal", function (e) {
+
+            //var equipmentMac = $(e.relatedTarget).data('mac_address');
+            var equipmentTableId = $(e.relatedTarget).data('id');
+            //var equipmentType = $(e.relatedTarget).data('?');
+
             $("#equipmentId").attr("value", $(e.relatedTarget).data('id'));
             $("#equipmentSubnetId").attr("value", $(e.relatedTarget).data('subnet_id'));
             $("#equipmentIpAddress").attr("value", $(e.relatedTarget).data('ip_address'));
             $("#equipmentMacAddress").attr("value", $(e.relatedTarget).data('mac_address'));
             $("#equipmentSerialNumber").attr("value", $(e.relatedTarget).data('serial_number'));
+            $("#modalForm").attr("action", '/equipment/computers/' + equipmentTableId);
         });
     });
 </script>

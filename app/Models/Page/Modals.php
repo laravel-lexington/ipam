@@ -18,6 +18,10 @@ use App\Models\Database\Placeholders;
 class Modals
 {
 
+
+    //NOT IN USE AT THE MOMENT
+
+
     var $equipmentFormTitle;
     var $equipmentForm;
 

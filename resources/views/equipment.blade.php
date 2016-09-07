@@ -125,24 +125,42 @@
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="equipmentLabel"><span id="equipmentId"></span></h4>
+                <h4 class="modal-title" id="equipmentLabel"><span>Modal</span></h4>
             </div>
             <div class="modal-body">
-                <p>You're looking at the example modal for <span id="equipmentSubnetId"></span>.</p>
-                <p><span id="equipmentIpAddress"></span></p>
-                <p><span id="equipmentMacAddress"></span></p>
-                <p><span id="equipmentSerialNumber"></span></p>
-            </div>
 
             <form method="POST" action="">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <div class="form-group">
-                    <textarea name="body" class="form-control"></textarea>
+                    <label for="equipmentId">Table ID</label>
+                    <input type="text" class="form-control" id="equipmentId">
+                </div>
+                <div class="form-group">
+                    <label for="equipmentSubnetId">Subnet ID</label>
+                    <input type="text" class="form-control" id="equipmentSubnetId">
+                </div>
+                <div class="form-group">
+                    <label for="equipmentIpAddress">IP Address</label>
+                    <input type="text" class="form-control" id="equipmentIpAddress">
+                </div>
+                <div class="form-group">
+                    <label for="equipmentMacAddress">MAC Address</label>
+                    <input type="text" class="form-control" id="equipmentMacAddress">
+                </div>
+                <div class="form-group">
+                    <label for="equipmentSerialNumber">Serial Number</label>
+                    <input type="text" class="form-control" id="equipmentSerialNumber">
+                </div>
+                <div class="form-group">
+                    <label for="notes">Notes</label>
+                    <textarea name="body" class="form-control" id="notes"></textarea>
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Save</button>
                 </div>
             </form>
+
+            </div>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">Cool, got it!</button>

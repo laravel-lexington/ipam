@@ -214,11 +214,11 @@
 <script>
     $(function() {
         $('#equipmentModal').on("show.bs.modal", function (e) {
-            $("#equipmentId").html($(e.relatedTarget).data('id'));
-            $("#equipmentSubnetId").html($(e.relatedTarget).data('subnet_id'));
-            $("#equipmentIpAddress").html($(e.relatedTarget).data('ip_address'));
-            $("#equipmentMacAddress").html($(e.relatedTarget).data('mac_address'));
-            $("#equipmentSerialNumber").html($(e.relatedTarget).data('serial_number'));
+            $("#equipmentId").attr("value", $(e.relatedTarget).data('id'));
+            $("#equipmentSubnetId").attr("value", $(e.relatedTarget).data('subnet_id'));
+            $("#equipmentIpAddress").attr("value", $(e.relatedTarget).data('ip_address'));
+            $("#equipmentMacAddress").attr("value", $(e.relatedTarget).data('mac_address'));
+            $("#equipmentSerialNumber").attr("value", $(e.relatedTarget).data('serial_number'));
         });
     });
 </script>

@@ -224,6 +224,3 @@
 </script>
 </body>
 </html>
-
-
-data-id="{{ $listPlaceholder['id'] }}" data-subnet_id="{{ $listPlaceholder['subnet_id'] }}" data-ip_address="{{ $listPlaceholder['ip_address'] }}" data-mac_address="{{ $listPlaceholder['mac_address'] }}" data-serial_number="{{ $listPlaceholder['serial_number'] }}">

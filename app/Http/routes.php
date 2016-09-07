@@ -26,11 +26,10 @@ Route::get('example', function () {
 });
 
 Route::get('sites', 'SiteController@sitesTable');
-Route::post('sites', 'SiteController@sitesTable');
+Route::post('sites', 'SiteController@sitesTable'); //allows switching from dark to light theme
 
 Route::get('subnets', 'NetworkController@subnetsTable');
-Route::post('subnets', 'NetworkController@subnetsTable');
+Route::post('subnets', 'NetworkController@subnetsTable'); //allows switching from dark to light theme
 
 Route::get('equipment', 'EquipmentController@equipmentCharts');
-//Route::post('equipment', 'EquipmentController@equipmentCharts');
-//Route::post("equipment/{{ $listPlaceholder['id'] }}", 'EquipmentController@modals');
+Route::post('equipment', 'EquipmentController@equipmentCharts'); //allows switching from dark to light theme

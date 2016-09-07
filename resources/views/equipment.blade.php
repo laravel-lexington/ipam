@@ -118,30 +118,20 @@
     <a href="#" class="btn btn-primary-outline p-x">All Placeholders</a>
 @endsection
 
-
-<!--ToDo add /@/include for modal section and yield the proper one when clicking
-it will need to be a form
-it will need a class dependency-->
-
 @section('modal')
-{{--<div id="placeholderModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">--}}
 <div id="equipmentModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog">
         <div class="modal-content">
 
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                {{--<h4 class="modal-title" id="equipmentLabel"><!--{/{$equpimentFormTitle}}--></h4>--}}
                 <h4 class="modal-title" id="equipmentLabel"><span id="equipmentId"></span></h4>
             </div>
             <div class="modal-body">
-                {{--<p>You're looking at the example modal for <!--{/{$equipmentForm}}-->.</p>--}}
                 <p>You're looking at the example modal for <span id="equipmentSubnetId"></span>.</p>
                 <p><span id="equipmentIpAddress"></span></p>
                 <p><span id="equipmentMacAddress"></span></p>
                 <p><span id="equipmentSerialNumber"></span></p>
-                {{--<p><span id=""></span></p>--}}
-                {{--<p><span id=""></span></p>--}}
             </div>
 
             <form method="POST" action="">

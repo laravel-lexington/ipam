@@ -131,36 +131,19 @@ class EquipmentController extends Controller
             'chartHeading' => $placeholderChartHeading
         ];
 
-        $entityType = "docs";
-
         //TODO: determine if Modals php functions go here
 
         $chartCollections = [$computerArray, $printerArray, $placeholderArray];
         $listComputers = $lists->equipmentLists($computers);
         $listPrinters = $lists->equipmentLists($printers);
         $listPlaceholders = $lists->equipmentLists($placeholders);
-        $placeholderModal = $placeholders->equipmentType;
 
-        return view('equipment')->with('title', $title)->with('uiTheme', $uiTheme)->with('menu', $menu)->with('submenu', $submenu)->with('chartCollections', $chartCollections)->with('listComputers', $listComputers)->with('listPrinters', $listPrinters)->with('listPlaceholders', $listPlaceholders)->with('placeholderModal', $placeholderModal);
-
-//        return view('equipment')->with('title', $title)->with('uiTheme', $uiTheme)->with('menu', $menu)->with('submenu', $submenu)->with('chartCollections', $chartCollections)->with('listComputers', $listComputers)->with('listPrinters', $listPrinters)->with('listPlaceholders', $listPlaceholders);
+        return view('equipment')->with('title', $title)->with('uiTheme', $uiTheme)->with('menu', $menu)->with('submenu', $submenu)->with('chartCollections', $chartCollections)->with('listComputers', $listComputers)->with('listPrinters', $listPrinters)->with('listPlaceholders', $listPlaceholders);
     }
 
     //stores an instance of Subnets as a new row in the computers table
     public function storeComputers(Request $request)
     {
-
-
-//        $computer->all()->where('id', $request->id);
-
-//        $os = $computer->operating_system;
-//        $vmf = $computer->virtual_machine_flag;
-//        $createdAt = $computer->created_at;
-
-
-//        $computer = new Computers;
-
-//        $computer->find($request->id);
 
         $computer = Computers::find($request->id);
 
@@ -168,34 +151,24 @@ class EquipmentController extends Controller
         $computer->ip_address = $request->ip_address;
         $computer->mac_address = $request->mac_address;
         $computer->serial_number = $request->serial_number;
-        $computer->operating_system = "OSX";
-        $computer->virtual_machine_flag = 1;
-        $computer->created_at = '2016-09-05 13:45:28';
-//        $computer->operating_system = $os;
-//        $computer->virtual_machine_flag = $vmf;
-//        $computer->created_at = $createdAt;
+
         $computer->save();
 
         return back();
-
     }
 
     //stores an instance of Printers as a new row in the printers table
     public function storePrinters(Request $request)
     {
 
-        $printers = new Printers;
+        $printer = Printers::find($request->id);
 
-        $printers->id = $request->id;
-        $printers->site_id = $request->site_id;
-        $printers->subnet_node_id = $request->subnet_node_id;
-        $printers->ip_address = $request->ip_address;
-        $printers->prefix_length = $request->prefix_length;
-        $printers->name = $request->name;
-        $printers->default_gateway = $request->default_gateway;
-        $printers->created_at = $request->created_at;
+        $printer->subnet_id = $request->subnet_id;
+        $printer->ip_address = $request->ip_address;
+        $printer->mac_address = $request->mac_address;
+        $printer->serial_number = $request->serial_number;
 
-        $printers->save();
+        $printer->save();
 
         return back();
     }
@@ -204,19 +177,16 @@ class EquipmentController extends Controller
     public function storePlaceholders(Request $request)
     {
 
-        $placeholders = new Placeholders;
+        $placeholder = Placeholders::find($request->id);
 
-        $placeholders->id = $request->id;
-        $placeholders->site_id = $request->site_id;
-        $placeholders->subnet_node_id = $request->subnet_node_id;
-        $placeholders->ip_address = $request->ip_address;
-        $placeholders->prefix_length = $request->prefix_length;
-        $placeholders->name = $request->name;
-        $placeholders->default_gateway = $request->default_gateway;
-        $placeholders->created_at = $request->created_at;
+        $placeholder->subnet_id = $request->subnet_id;
+        $placeholder->ip_address = $request->ip_address;
+        $placeholder->mac_address = $request->mac_address;
+        $placeholder->serial_number = $request->serial_number;
 
-        $placeholders->save();
+        $placeholder->save();
 
+        return back();
     }
 
     public function equipmentTables(Tables $tables){}

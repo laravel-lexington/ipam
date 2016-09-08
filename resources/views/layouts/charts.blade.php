@@ -217,14 +217,16 @@
 
             //var equipmentMac = $(e.relatedTarget).data('mac_address');
             var equipmentTableId = $(e.relatedTarget).data('id');
-            //var equipmentType = $(e.relatedTarget).data('?');
+            var equipmentType = $(e.relatedTarget).data('type');
 
+            $("#equipmentType").html($(e.relatedTarget).data('type') + ' ID');
             $("#equipmentId").attr("value", $(e.relatedTarget).data('id'));
             $("#equipmentSubnetId").attr("value", $(e.relatedTarget).data('subnet_id'));
             $("#equipmentIpAddress").attr("value", $(e.relatedTarget).data('ip_address'));
             $("#equipmentMacAddress").attr("value", $(e.relatedTarget).data('mac_address'));
             $("#equipmentSerialNumber").attr("value", $(e.relatedTarget).data('serial_number'));
-            $("#modalForm").attr("action", '/equipment/computers/' + equipmentTableId);
+//            $("#modalForm").attr("action", '/equipment/computers/' + equipmentTableId);
+            $("#modalForm").attr("action", '/equipment/' + equipmentType + '/' + equipmentTableId);
         });
     });
 </script>
